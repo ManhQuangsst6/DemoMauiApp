@@ -1,4 +1,5 @@
-﻿namespace DemoMauiApp.UI
+﻿
+namespace DemoMauiApp.UI
 {
     public static class AppColors
     {

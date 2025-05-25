@@ -1,4 +1,7 @@
 ﻿using CommunityToolkit.Maui.Core;
+using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.ApplicationModel.DataTransfer;
+using Microsoft.Maui.Controls;
 using System.Diagnostics.CodeAnalysis;
 
 namespace DemoMauiApp.CoreMVVM.Navigation

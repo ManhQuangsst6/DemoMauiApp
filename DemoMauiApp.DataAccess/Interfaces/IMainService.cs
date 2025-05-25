@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DemoMauiApp.DataAccess.Interfaces
 {
-    internal interface IMainService
+    public interface IMainService
     {
     }
 }

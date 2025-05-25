@@ -1,15 +1,21 @@
 ﻿using CommunityToolkit.Maui;
 using DemoMauiApp.Configurations;
 using DemoMauiApp.CoreMVVM.MVVM;
+using DemoMauiApp.CoreMVVM.Navigation;
+using DemoMauiApp.DataAccess;
 using DemoMauiApp.DataAccess.Configurations;
+using DemoMauiApp.DataAccess.Interfaces;
 using DemoMauiApp.DataAccess.Models;
 using DemoMauiApp.Pages.ViewModels;
 using DemoMauiApp.Pages.Views;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.Maui.Hosting;
 using Serilog;
 using Serilog.Events;
-using Telerik.Maui.Controls.Compatibility;
+using Syncfusion.Maui.Toolkit.Hosting;
+//using Telerik.Maui.Controls.Compatibility;
 namespace DemoMauiApp
 {
     public static class MauiProgram
@@ -17,9 +23,10 @@ namespace DemoMauiApp
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
-            builder.UseMauiApp<App>()
-                .UseMauiCommunityToolkit()
-                .UseTelerik()
+            builder
+            .UseMauiApp<App>()
+            .ConfigureSyncfusionToolkit()
+            .UseMauiCommunityToolkit()
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -33,7 +40,7 @@ namespace DemoMauiApp
             builder.RegisterLog();
 
 #if DEBUG
-            builder.Logging.AddDebug();
+          //  builder.Logging.AddDebug();
             //builder.EnableHotReload();
 #endif
             return builder.Build();
@@ -41,6 +48,8 @@ namespace DemoMauiApp
         private static MauiAppBuilder RegisterServices(this MauiAppBuilder builder)
         {
             builder.Services.AddAutoMapperConfig();
+            builder.Services.AddTransient<IMainService, MainService>();
+            builder.Services.AddTransient<IAppNavigator, AppNavigator>();
 
             return builder;
         }
@@ -53,7 +62,6 @@ namespace DemoMauiApp
 
         private static MauiAppBuilder RegisterViewModel(this MauiAppBuilder builder)
         {
-            builder.Services.AddTransient<MainViewModel>();
             return builder;
         }
 

@@ -1,4 +1,6 @@
-﻿namespace DemoMauiApp.CoreMVVM.MVVM
+﻿using Microsoft.Maui.Controls;
+
+namespace DemoMauiApp.CoreMVVM.MVVM
 {
     public class BasePopup : BasePage
     {

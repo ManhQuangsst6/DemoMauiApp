@@ -1,4 +1,6 @@
-﻿namespace DemoMauiApp.DataAccess.Configurations
+﻿using Microsoft.Extensions.DependencyInjection;
+
+namespace DemoMauiApp.DataAccess.Configurations
 {
     public static class ConfigurationAutoMapper
     {

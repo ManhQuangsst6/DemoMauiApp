@@ -60,17 +60,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CommunityToolkit.Maui" Version="9.1.1" />
-		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.5" />
-		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.5" />
-		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
-		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="9.0.70" />
-		<PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
-		<PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
-		<PackageReference Include="Syncfusion.Maui.Toolkit" Version="1.0.5" />
-		<PackageReference Include="Telerik.UI.for.Maui" Version="11.0.0" />
+	  <PackageReference Include="Microsoft.Extensions.Configuration.Binder" />
+	  <PackageReference Include="Microsoft.Extensions.Configuration.Json" />
 	</ItemGroup>
+
+	
 
 	<ItemGroup>
 	  <ProjectReference Include="..\DemoMauiApp.CoreMVVM\DemoMauiApp.CoreMVVM.csproj" />
@@ -78,18 +72,17 @@
 	  <ProjectReference Include="..\DemoMauiApp.UI\DemoMauiApp.UI.csproj" />
 	  <ProjectReference Include="..\DemoMauiApp.Utils\DemoMauiApp.Utils.csproj" />
 	</ItemGroup>
-
-	<!--<ItemGroup>
-	  <ProjectReference Include="..\DemoMauiApp.CoreMVVM\DemoMauiApp.CoreMVVM.csproj" />
-	  <ProjectReference Include="..\DemoMauiApp.DataAccess\DemoMauiApp.DataAccess.csproj" />
-	  <ProjectReference Include="..\DemoMauiApp.UI\DemoMauiApp.UI.csproj" />
-	  <ProjectReference Include="..\DemoMauiApp.Utils\DemoMauiApp.Utils.csproj" />
-	</ItemGroup>-->
 
 	<ItemGroup>
 	  <MauiXaml Update="Pages\Views\MainPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="AppSettings.json">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
 	</ItemGroup>
 
 </Project>

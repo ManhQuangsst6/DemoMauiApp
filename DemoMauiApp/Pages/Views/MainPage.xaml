@@ -20,7 +20,7 @@
                 Width="4*" />
         </Grid.ColumnDefinitions>
         <StackLayout>
-            <telerik:RadComboBox
+            <!--<telerik:RadComboBox
                 AutomationId="staticItemsComboBox">
                 <telerik:RadComboBox.ItemsSource>
                     <x:Array
@@ -36,7 +36,7 @@
                         <x:String>Japan</x:String>
                     </x:Array>
                 </telerik:RadComboBox.ItemsSource>
-            </telerik:RadComboBox>
+            </telerik:RadComboBox>-->
 
         </StackLayout>
        
