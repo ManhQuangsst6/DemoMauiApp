@@ -7,7 +7,7 @@
     xmlns:pages="clr-namespace:DemoMauiApp.Pages.Views"
     Shell.FlyoutBehavior="Disabled"
     Shell.NavBarIsVisible="False"
-    Title="DemoMauiApp">
+    Title="Music">
 
     <ShellContent
         ContentTemplate="{DataTemplate pages:MainPage}"

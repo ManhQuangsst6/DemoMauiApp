@@ -1,21 +1,9 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-
+﻿
 namespace DemoMauiApp.CoreMVVM.MVVM
 {
-    public abstract class BaseFormModel : ObservableValidator
+    public abstract class BaseFormModel
     {
         protected virtual string[] ValidatableAndSupportPropertyNames => new string[0];
 
-        public virtual bool IsValid()
-        {
-            ValidateAllProperties();
-
-            foreach (var propertyName in ValidatableAndSupportPropertyNames)
-            {
-                OnPropertyChanged(propertyName);
-            }
-
-            return !HasErrors;
-        }
     }
 }

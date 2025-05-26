@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<!--<TargetFrameworks>net9.0-android;net9.0-ios;net9.0-maccatalyst</TargetFrameworks>-->
@@ -21,6 +21,9 @@
 	
 
 	<ItemGroup>
+	  <MauiXaml Update="Controls\ItemPlayList.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Resources\ColorResource.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -31,17 +34,15 @@
 
 	<ItemGroup>
 	  <Folder Include="Converters\" />
-	  <Folder Include="Controls\" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="CommunityToolkit.Common" />
-	  <PackageReference Include="CommunityToolkit.Maui" />
 	  <PackageReference Include="Microsoft.Maui.Controls" />
 	  <PackageReference Include="Serilog.Extensions.Logging" />
 	  <PackageReference Include="Serilog.Sinks.Debug" />
 	  <PackageReference Include="Syncfusion.Maui.Core" />
 	  <PackageReference Include="Syncfusion.Maui.Toolkit" />
+	  <PackageReference Include="Telerik.UI.for.Maui" />
 	</ItemGroup>
 
 </Project>

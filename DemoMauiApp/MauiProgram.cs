@@ -1,5 +1,4 @@
-﻿using CommunityToolkit.Maui;
-using DemoMauiApp.Configurations;
+﻿using DemoMauiApp.Configurations;
 using DemoMauiApp.CoreMVVM.MVVM;
 using DemoMauiApp.CoreMVVM.Navigation;
 using DemoMauiApp.DataAccess;
@@ -9,12 +8,11 @@ using DemoMauiApp.DataAccess.Models;
 using DemoMauiApp.Pages.ViewModels;
 using DemoMauiApp.Pages.Views;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.Maui.Hosting;
 using Serilog;
 using Serilog.Events;
 using Syncfusion.Maui.Toolkit.Hosting;
+using Telerik.Maui.Controls.Compatibility;
 //using Telerik.Maui.Controls.Compatibility;
 namespace DemoMauiApp
 {
@@ -26,12 +24,13 @@ namespace DemoMauiApp
             builder
             .UseMauiApp<App>()
             .ConfigureSyncfusionToolkit()
-            .UseMauiCommunityToolkit()
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                fonts.AddFont("telerikcontrolsicons.ttf", "TelerikControlsIcons");
+                fonts.AddFont("telerikfontexamples.ttf", "TelerikFontExamples");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-            });
+            }).UseTelerik();
 
             builder.BuildConfig();
             builder.RegisterServices();
@@ -40,7 +39,7 @@ namespace DemoMauiApp
             builder.RegisterLog();
 
 #if DEBUG
-          //  builder.Logging.AddDebug();
+            //  builder.Logging.AddDebug();
             //builder.EnableHotReload();
 #endif
             return builder.Build();
@@ -57,6 +56,7 @@ namespace DemoMauiApp
         private static MauiAppBuilder RegisterPages(this MauiAppBuilder builder)
         {
             builder.Services.AddPage<MainPage, MainViewModel>();
+            //builder.Services.AddPage<HomeView, HomeViewModel>();
             return builder;
         }
 

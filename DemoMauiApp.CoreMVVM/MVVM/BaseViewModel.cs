@@ -1,15 +1,29 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
+﻿using CommunityToolkit.Mvvm.Input;
 using DemoMauiApp.CoreMVVM.Navigation;
 using Serilog;
+using System.Windows.Input;
 
 namespace DemoMauiApp.CoreMVVM.MVVM
 {
-    public abstract partial class BaseViewModel : ObservableRecipient
+    public abstract class BaseViewModel : BaseModel
     {
 
-        [ObservableProperty]
-        protected bool isBusy;
+        private bool isBusy;
+
+        ICommand? backCommand;
+
+        public bool IsBusy
+        {
+            get => isBusy;
+            set
+            {
+                if (isBusy != value)
+                {
+                    isBusy = value;
+                    OnPropertyChanged(nameof(IsBusy));
+                }
+            }
+        }
 
         protected async Task ExecuteCommandAsync(Func<Task> action)
         {
@@ -54,6 +68,7 @@ namespace DemoMauiApp.CoreMVVM.MVVM
         protected BaseViewModel(IAppNavigator appNavigator)
         {
             AppNavigator = appNavigator;
+            backCommand = new RelayCommand(() => AppNavigator.GoBackAsync(data: GetType().FullName));
         }
 
         public virtual Task OnAppearingAsync()
@@ -69,8 +84,5 @@ namespace DemoMauiApp.CoreMVVM.MVVM
 
             return Task.CompletedTask;
         }
-
-        [RelayCommand]
-        protected virtual Task BackAsync() => AppNavigator.GoBackAsync(data: GetType().FullName);
     }
 }

@@ -61,11 +61,65 @@ namespace DemoMauiApp.Utils.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Browse.
+        /// </summary>
+        public static string BrowseNavigate {
+            get {
+                return ResourceManager.GetString("BrowseNavigate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to yyyy-MM-dd HH:mm:ss.fff zzz.
         /// </summary>
         public static string DateTimeFormatFullTimeZoneOffset {
             get {
                 return ResourceManager.GetString("DateTimeFormatFullTimeZoneOffset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home.
+        /// </summary>
+        public static string HomeNavigate {
+            get {
+                return ResourceManager.GetString("HomeNavigate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Personalized picks.
+        /// </summary>
+        public static string PickNavigate {
+            get {
+                return ResourceManager.GetString("PickNavigate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Playlists.
+        /// </summary>
+        public static string PlaylistsNavigate {
+            get {
+                return ResourceManager.GetString("PlaylistsNavigate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Radio.
+        /// </summary>
+        public static string RadioNavigate {
+            get {
+                return ResourceManager.GetString("RadioNavigate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Songs.
+        /// </summary>
+        public static string SongsNavigate {
+            get {
+                return ResourceManager.GetString("SongsNavigate", resourceCulture);
             }
         }
     }

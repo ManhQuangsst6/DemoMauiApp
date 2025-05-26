@@ -117,7 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BrowseNavigate" xml:space="preserve">
+    <value>Browse</value>
+  </data>
   <data name="DateTimeFormatFullTimeZoneOffset" xml:space="preserve">
     <value>yyyy-MM-dd HH:mm:ss.fff zzz</value>
+  </data>
+  <data name="HomeNavigate" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="PickNavigate" xml:space="preserve">
+    <value>Personalized picks</value>
+  </data>
+  <data name="PlaylistsNavigate" xml:space="preserve">
+    <value>Playlists</value>
+  </data>
+  <data name="RadioNavigate" xml:space="preserve">
+    <value>Radio</value>
+  </data>
+  <data name="SongsNavigate" xml:space="preserve">
+    <value>Songs</value>
   </data>
 </root>

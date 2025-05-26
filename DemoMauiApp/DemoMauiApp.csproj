@@ -50,7 +50,6 @@
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
-		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
 
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
@@ -62,6 +61,7 @@
 	<ItemGroup>
 	  <PackageReference Include="Microsoft.Extensions.Configuration.Binder" />
 	  <PackageReference Include="Microsoft.Extensions.Configuration.Json" />
+	  <PackageReference Include="Telerik.UI.for.Maui" />
 	</ItemGroup>
 
 	
@@ -74,6 +74,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Pages\Views\BrowseView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Views\HomeView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\Views\MainPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

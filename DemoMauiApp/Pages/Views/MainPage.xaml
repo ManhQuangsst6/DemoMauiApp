@@ -11,34 +11,85 @@
     xmlns:res="clr-namespace:DemoMauiApp.Utils.Resources;assembly=DemoMauiApp.Utils"
     x:DataType="vm:MainViewModel"
     x:Name="this">
+    <app:BasePage.Resources>
+        <DataTemplate
+            x:Key="CustomHeaderMainTemplate">
+            <Label
+                Background="#f2f2f2"
+                Text="Music app"
+                FontAttributes="Bold"
+                FontSize="20"
+                Margin="0,5"
+                TextColor="Black"
+                TranslationX="-40"/>
+        </DataTemplate>
+        <DataTemplate
+            x:Key="ItemContentTemplateHeader1">
+            <Label
+                TranslationX="-40"
+                Text="Discover"
+                FontSize="16" FontAttributes="Bold" />
+        </DataTemplate>
+        <DataTemplate
+            x:Key="ItemContentTemplateHeader2">
+            <Label
+                TranslationX="-40"
+                TranslationY="0"
+                Text="Library"
+                FontSize="16"
+                FontAttributes="Bold" />
+        </DataTemplate>
+       
+    </app:BasePage.Resources>
     
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition
-                Width="*" />
-            <ColumnDefinition
-                Width="4*" />
-        </Grid.ColumnDefinitions>
-        <StackLayout>
-            <!--<telerik:RadComboBox
-                AutomationId="staticItemsComboBox">
-                <telerik:RadComboBox.ItemsSource>
-                    <x:Array
-                        Type="{x:Type x:String}">
-                        <x:String>USA</x:String>
-                        <x:String>Uganda</x:String>
-                        <x:String>Ukraine</x:String>
-                        <x:String>Canada</x:String>
-                        <x:String>France</x:String>
-                        <x:String>Italy</x:String>
-                        <x:String>United Kingdom</x:String>
-                        <x:String>China</x:String>
-                        <x:String>Japan</x:String>
-                    </x:Array>
-                </telerik:RadComboBox.ItemsSource>
-            </telerik:RadComboBox>-->
-
-        </StackLayout>
-       
+        <telerik:RadNavigationView
+            x:Name="navigationView"
+            HeaderTemplate="{StaticResource CustomHeaderMainTemplate}"
+            AutoChangeDisplayMode="False"
+            IsPaneOpen="True"
+            DisplayMode="Expanded"
+            ItemClicked="navigationView_ItemClicked">
+            <telerik:RadNavigationView.Items>
+                <telerik:NavigationViewItem
+                    ContentTemplate="{StaticResource ItemContentTemplateHeader1}"
+                    ImageSource="{x:Null}"
+                    IsSelectable="False"/>
+                <telerik:NavigationViewItem
+                    Text="{x:Static res:AppResource.HomeNavigate}"
+                    IsSelected="True"
+                    ImageSource="home.png" >
+                    
+                </telerik:NavigationViewItem>
+                <telerik:NavigationViewItem
+                    Text="{x:Static res:AppResource.BrowseNavigate}"
+                    IsSelected="True" 
+                    ImageSource="search.png"/>
+                <telerik:NavigationViewItem
+                    Text="{x:Static res:AppResource.RadioNavigate}"
+                    IsSelected="True" 
+                    ImageSource="radio.png"/>
+                <telerik:NavigationViewItem
+                    ImageSource="{x:Null}"
+                    IsSelectable="False"
+                    ContentTemplate="{StaticResource ItemContentTemplateHeader2}"/>
+                <telerik:NavigationViewItem
+                    Text="{x:Static res:AppResource.PlaylistsNavigate}"
+                    IsSelected="True"
+                    ImageSource="list.png"/>
+                <telerik:NavigationViewItem
+                    Text="{x:Static res:AppResource.SongsNavigate}"
+                    ImageSource="music.png"
+                    IsSelected="True" />
+                <telerik:NavigationViewItem
+                    Text="{x:Static res:AppResource.PickNavigate}"
+                    IsSelected="True" 
+                    ImageSource="smile.png"/>
+            </telerik:RadNavigationView.Items>
+            <telerik:RadNavigationView.Content>
+                <ContentView
+                    x:Name="contentControl" />
+            </telerik:RadNavigationView.Content>
+        </telerik:RadNavigationView>
     </Grid>
 </app:BasePage>
