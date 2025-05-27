@@ -47,6 +47,7 @@ namespace DemoMauiApp
         private static MauiAppBuilder RegisterServices(this MauiAppBuilder builder)
         {
             builder.Services.AddAutoMapperConfig();
+            builder.Services.AddSingleton<MauiDbContext>();
             builder.Services.AddTransient<IMainService, MainService>();
             builder.Services.AddTransient<IAppNavigator, AppNavigator>();
 

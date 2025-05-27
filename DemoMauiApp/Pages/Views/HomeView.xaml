@@ -1,48 +1,77 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<app:BaseContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:controls="clr-namespace:DemoMauiApp.UI.Controls;assembly=DemoMauiApp.UI"
-             xmlns:app="clr-namespace:DemoMauiApp.CoreMVVM.MVVM;assembly=DemoMauiApp.CoreMVVM"
-             x:Class="DemoMauiApp.Pages.Views.HomeView"
+<app:BaseContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:telerik="http://schemas.telerik.com/2022/xaml/maui"
+    xmlns:controls="clr-namespace:DemoMauiApp.UI.Controls;assembly=DemoMauiApp.UI"
+    xmlns:app="clr-namespace:DemoMauiApp.CoreMVVM.MVVM;assembly=DemoMauiApp.CoreMVVM"
+    xmlns:ui="clr-namespace:DemoMauiApp.UI;assembly=DemoMauiApp.UI"
+    x:Class="DemoMauiApp.Pages.Views.HomeView"
     xmlns:vm="clr-namespace:DemoMauiApp.Pages.ViewModels"
     x:DataType="vm:HomeViewModel">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition
-                Height="*" />
-            <RowDefinition
-                Height="9*" />
-            <RowDefinition
-                Height="9*" />
-        </Grid.RowDefinitions>
+    <app:BaseContentView.Resources>
+        <Style
+            TargetType="telerik:RadTabView"
+            x:Key="TabView">
+            <Setter
+                Property="Background"
+                Value="#f7f7f7" />
+            
+            <Setter
+                Property="HeightRequest"
+                Value="50" />
+            <Setter
+                Property="BorderThickness"
+                Value="1" />
+            
+
+        </Style>
+    </app:BaseContentView.Resources>
+    <StackLayout>
+        <telerik:RadTabView
+            WidthRequest="200"
+            x:Name="tabView" HeaderItemStyle="{StaticResource TabView}">
+            <telerik:TabViewItem
+               
+                HeaderText="Home" />
+            <telerik:TabViewItem
+                HeaderText="Folder" />
+            <telerik:TabViewItem
+                HeaderText="View" />
+        </telerik:RadTabView>
         <StackLayout
-            Grid.Row="1">
+            Margin="80, 0 ,0 ,0">
             <Label
                 FontAttributes="Bold"
-                FontSize="30"
+                FontSize="{x:Static ui:Dimens.Fonsize30}"
                 Text="Title" />
             <Label
-                FontSize="12"
+                Text="Subheading" />
+            <FlexLayout
+                Direction="Row"
+                Wrap="Wrap"
+                BindableLayout.ItemsSource="{Binding PlayLists}"
+                Margin="10">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <controls:ItemPlayList
+                            Padding="0,0,20,0"
+                            BindingContext="{Binding .}" />
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </FlexLayout>
+        </StackLayout>
+        <StackLayout
+            Margin="80,0, 0 ,0">
+            <Label
+                FontAttributes="Bold"
+                FontSize="{x:Static ui:Dimens.Fonsize30}"
+                Text="Title" />
+            <Label
+                FontSize="{x:Static ui:Dimens.Fonsize12}"
                 Text="Subheading" />
             <ListView>
             </ListView>
         </StackLayout>
-               
-        <StackLayout
-            Grid.Row="2">
-            <Label
-                FontAttributes="Bold"
-                FontSize="30"
-                Text="Title" />
-            <Label
-                Text="{Binding Test}" />
-            <ListView ItemsSource="{Binding PlayLists}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <controls:ItemPlayList />
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
-    </Grid>
+    </StackLayout>
 </app:BaseContentView>

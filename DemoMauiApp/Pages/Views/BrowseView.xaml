@@ -7,5 +7,11 @@
             Text="BrowseView"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        <Image
+            Source="https://m.yodycdn.com/blog/anh-dep-3d-yodyvn4.jpg"
+            Aspect="AspectFill"
+            HeightRequest="200"
+            WidthRequest="200"
+            HorizontalOptions="FillAndExpand" />
     </VerticalStackLayout>
 </ContentView>

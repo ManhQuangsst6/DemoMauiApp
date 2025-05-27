@@ -12,79 +12,82 @@
     x:DataType="vm:MainViewModel"
     x:Name="this">
     <app:BasePage.Resources>
-        <DataTemplate
-            x:Key="CustomHeaderMainTemplate">
-            <Label
-                Background="#f2f2f2"
-                Text="Music app"
-                FontAttributes="Bold"
-                FontSize="20"
-                Margin="0,5"
-                TextColor="Black"
-                TranslationX="-40"/>
-        </DataTemplate>
-        <DataTemplate
-            x:Key="ItemContentTemplateHeader1">
-            <Label
-                TranslationX="-40"
-                Text="Discover"
-                FontSize="16" FontAttributes="Bold" />
-        </DataTemplate>
-        <DataTemplate
-            x:Key="ItemContentTemplateHeader2">
-            <Label
-                TranslationX="-40"
-                TranslationY="0"
-                Text="Library"
-                FontSize="16"
-                FontAttributes="Bold" />
-        </DataTemplate>
-       
+        <Style
+            TargetType="telerik:NavigationViewHeader"
+            x:Key="StyleHeaderNavigation">
+            <Setter
+                Property="IsHeaderButtonVisible"
+                Value="False" />
+            <Setter
+                Property="FontSize"
+                Value="{x:Static ui:Dimens.Fonsize20}" />
+            <Setter
+                Property="FontAttributes"
+                Value="Bold" />
+        </Style>
+        <Style
+            TargetType="telerik:NavigationViewItemView"
+            x:Key="NavigationItemStyleGroup">
+            
+            <Setter
+                Property="Padding"
+                Value="-40,0,0,0" />
+            <Setter
+                Property="FontAttributes"
+                Value="Bold" />
+            <Setter
+                Property="FontSize"
+                Value="{x:Static ui:Dimens.Fonsize16}" />
+        </Style>
     </app:BasePage.Resources>
     
     <Grid>
         <telerik:RadNavigationView
             x:Name="navigationView"
-            HeaderTemplate="{StaticResource CustomHeaderMainTemplate}"
             AutoChangeDisplayMode="False"
+            HeaderText="Music app"
             IsPaneOpen="True"
             DisplayMode="Expanded"
-            ItemClicked="navigationView_ItemClicked">
-            <telerik:RadNavigationView.Items>
+            ItemClicked="navigationView_ItemClicked"
+            HeaderStyle="{StaticResource StyleHeaderNavigation}"
+            >
+            <telerik:RadNavigationView.Items >
                 <telerik:NavigationViewItem
-                    ContentTemplate="{StaticResource ItemContentTemplateHeader1}"
+                    Style="{StaticResource NavigationItemStyleGroup}"
+                    Text="Discover"
                     ImageSource="{x:Null}"
                     IsSelectable="False"/>
-                <telerik:NavigationViewItem
+                <telerik:NavigationViewItem 
                     Text="{x:Static res:AppResource.HomeNavigate}"
                     IsSelected="True"
-                    ImageSource="home.png" >
+                    ImageSource="{x:Static ui:Icons.home}" >
                     
                 </telerik:NavigationViewItem>
                 <telerik:NavigationViewItem
                     Text="{x:Static res:AppResource.BrowseNavigate}"
                     IsSelected="True" 
-                    ImageSource="search.png"/>
+                    ImageSource="{x:Static ui:Icons.search}"/>
                 <telerik:NavigationViewItem
                     Text="{x:Static res:AppResource.RadioNavigate}"
                     IsSelected="True" 
-                    ImageSource="radio.png"/>
+                    ImageSource="{x:Static ui:Icons.radio}"/>
                 <telerik:NavigationViewItem
                     ImageSource="{x:Null}"
                     IsSelectable="False"
-                    ContentTemplate="{StaticResource ItemContentTemplateHeader2}"/>
+                    Text="Library"
+                    Style="{StaticResource NavigationItemStyleGroup}"/>
                 <telerik:NavigationViewItem
                     Text="{x:Static res:AppResource.PlaylistsNavigate}"
                     IsSelected="True"
-                    ImageSource="list.png"/>
+                    ImageSource="{x:Static ui:Icons.list}"/>
                 <telerik:NavigationViewItem
                     Text="{x:Static res:AppResource.SongsNavigate}"
-                    ImageSource="music.png"
+                    ImageSource="{x:Static ui:Icons.music}"
                     IsSelected="True" />
                 <telerik:NavigationViewItem
                     Text="{x:Static res:AppResource.PickNavigate}"
                     IsSelected="True" 
-                    ImageSource="smile.png"/>
+                    ImageSource="{x:Static ui:Icons.smile}"/>
             </telerik:RadNavigationView.Items>
             <telerik:RadNavigationView.Content>
                 <ContentView
