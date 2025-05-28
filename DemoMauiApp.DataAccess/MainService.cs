@@ -55,5 +55,47 @@ namespace DemoMauiApp.DataAccess
             };
 
         }
+        public List<Artist> GetArtist()
+        {
+            return new List<Artist>()
+            {
+                new Artist
+                {
+                    Id = 1,
+                    Name = "Pop Hits",
+                    Description = "Top ",
+                    LinkImage = "https://m.yodycdn.com/blog/anh-dep-3d-yodyvn4.jpg"
+                },
+                new Artist
+                {
+                    Id = 2,
+                    Name = "Lo-Fi Chill",
+                    Description = "Relaxing ",
+                    LinkImage = "https://m.yodycdn.com/blog/anh-dep-3d-yodyvn4.jpg"
+                },
+                new Artist
+                {
+                    Id = 3,
+                    Name = "Workout Mix",
+                    Description = "Energizing s",
+                    LinkImage = "https://m.yodycdn.com/blog/anh-dep-3d-yodyvn4.jpg"
+                },
+                new Artist
+                {
+                    Id = 4,
+                    Name = "Classical Essentials",
+                    Description = "Best class",
+                    LinkImage = "https://m.yodycdn.com/blog/anh-dep-3d-yodyvn4.jpg"
+                },
+                new Artist
+                {
+                    Id = 5,
+                    Name = "Jazz Vibes",
+                    Description = "Smooth jazz c",
+                    LinkImage = "https://m.yodycdn.com/blog/anh-dep-3d-yodyvn4.jpg"
+                }
+            };
+
+        }
     }
 }

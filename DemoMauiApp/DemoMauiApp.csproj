@@ -74,13 +74,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Pages\Views\BrowseView.xaml">
+	  <MauiXaml Update="Features\Pages\Views\BrowseView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\Views\HomeView.xaml">
+	  <MauiXaml Update="Features\Pages\Views\HomeView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\Views\MainPage.xaml">
+	  <MauiXaml Update="Features\Pages\Views\MainPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

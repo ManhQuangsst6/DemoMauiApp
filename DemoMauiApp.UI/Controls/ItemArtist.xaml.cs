@@ -3,14 +3,14 @@ using DemoMauiApp.UI.Extensions;
 
 namespace DemoMauiApp.UI.Controls;
 
-public partial class ItemPlayList : ContentView
+public partial class ItemArtist : ContentView
 {
     public static readonly BindableProperty NameProperty = BindableProperty.Create(
-        nameof(Name),
-        typeof(string),
-        typeof(ItemPlayList),
-        default(string),
-        BindingMode.TwoWay);
+       nameof(Name),
+       typeof(string),
+       typeof(ItemPlayList),
+       default(string),
+       BindingMode.TwoWay);
 
     public string Name
     {
@@ -39,7 +39,7 @@ public partial class ItemPlayList : ContentView
         get => (string)GetValue(ImageLinkProperty);
         set => SetValue(ImageLinkProperty, value);
     }
-    public ItemPlayList()
+    public ItemArtist()
     {
         InitializeComponent();
     }

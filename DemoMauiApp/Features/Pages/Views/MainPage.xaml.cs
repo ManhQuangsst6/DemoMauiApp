@@ -1,10 +1,11 @@
 using DemoMauiApp.CoreMVVM.MVVM;
 using DemoMauiApp.CoreMVVM.Navigation;
 using DemoMauiApp.DataAccess.Interfaces;
-using DemoMauiApp.Pages.ViewModels;
+using DemoMauiApp.Features.Pages.ViewModels;
+using DemoMauiApp.UI.Extensions;
 using DemoMauiApp.Utils.Resources;
 
-namespace DemoMauiApp.Pages.Views;
+namespace DemoMauiApp.Features.Pages.Views;
 
 public partial class MainPage : BasePage
 {
@@ -48,5 +49,15 @@ public partial class MainPage : BasePage
                 contentControl.Content = new HomeView(_appNavigator, _mainService);
                 break;
         }
+    }
+
+    private void navigationView_Loaded(object sender, EventArgs e)
+    {
+        navigationView.SetCustomCursor(UI.Enums.CursorIcon.Hand, this.Handler?.MauiContext);
+    }
+
+    private void contentControl_Loaded(object sender, EventArgs e)
+    {
+        // navigationView.SetCustomCursor(UI.Enums.CursorIcon.Arrow, this.Handler?.MauiContext);
     }
 }

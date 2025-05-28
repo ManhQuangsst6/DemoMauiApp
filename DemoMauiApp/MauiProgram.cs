@@ -5,15 +5,15 @@ using DemoMauiApp.DataAccess;
 using DemoMauiApp.DataAccess.Configurations;
 using DemoMauiApp.DataAccess.Interfaces;
 using DemoMauiApp.DataAccess.Models;
-using DemoMauiApp.Pages.ViewModels;
-using DemoMauiApp.Pages.Views;
+using DemoMauiApp.Features.Pages.ViewModels;
+using DemoMauiApp.Features.Pages.Views;
+using DemoMauiApp.UI.Behaviors;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Events;
 using Syncfusion.Maui.Toolkit.Hosting;
 using Telerik.Maui.Controls.Compatibility;
-//using Telerik.Maui.Controls.Compatibility;
 namespace DemoMauiApp
 {
     public static class MauiProgram
@@ -30,8 +30,11 @@ namespace DemoMauiApp
                 fonts.AddFont("telerikcontrolsicons.ttf", "TelerikControlsIcons");
                 fonts.AddFont("telerikfontexamples.ttf", "TelerikFontExamples");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-            }).UseTelerik();
-
+            }).UseTelerik()
+            .ConfigureEffects(effects =>
+             {
+                 effects.Add<MouseHoverEffect, MouseHoverEffectImpl>();
+             });
             builder.BuildConfig();
             builder.RegisterServices();
             builder.RegisterPages();

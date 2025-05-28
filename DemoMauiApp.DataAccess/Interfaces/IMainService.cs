@@ -5,6 +5,7 @@ namespace DemoMauiApp.DataAccess.Interfaces
     public interface IMainService
     {
         List<PlayLists> GetPlayLists();
+        List<Artist> GetArtist();
 
     }
 }

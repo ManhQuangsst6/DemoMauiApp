@@ -10,7 +10,6 @@
         public static readonly string music = "music.png";
         public static readonly string smile = "smile.png";
 
-
         #endregion
     }
 

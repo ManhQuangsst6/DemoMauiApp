@@ -6,13 +6,13 @@
     <ActiveDebugProfile>Windows Machine</ActiveDebugProfile>
   </PropertyGroup>
   <ItemGroup>
-    <MauiXaml Update="Pages\Views\BrowseView.xaml">
+    <MauiXaml Update="Features\Pages\Views\BrowseView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Pages\Views\HomeView.xaml">
+    <MauiXaml Update="Features\Pages\Views\HomeView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Pages\Views\MainPage.xaml">
+    <MauiXaml Update="Features\Pages\Views\MainPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
   </ItemGroup>

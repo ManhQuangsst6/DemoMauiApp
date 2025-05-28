@@ -3,7 +3,7 @@ using DemoMauiApp.CoreMVVM.MVVM;
 using DemoMauiApp.CoreMVVM.Navigation;
 using System.Windows.Input;
 
-namespace DemoMauiApp.Pages.ViewModels
+namespace DemoMauiApp.Features.Pages.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {

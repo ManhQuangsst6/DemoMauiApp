@@ -21,6 +21,9 @@
 	
 
 	<ItemGroup>
+	  <MauiXaml Update="Controls\ItemArtist.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Controls\ItemPlayList.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -43,6 +46,10 @@
 	  <PackageReference Include="Syncfusion.Maui.Core" />
 	  <PackageReference Include="Syncfusion.Maui.Toolkit" />
 	  <PackageReference Include="Telerik.UI.for.Maui" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\DemoMauiApp.DataAccess\DemoMauiApp.DataAccess.csproj" />
 	</ItemGroup>
 
 </Project>
