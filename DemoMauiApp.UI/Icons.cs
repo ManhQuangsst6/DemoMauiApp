@@ -11,6 +11,9 @@
         public static readonly string smile = "smile.png";
 
         #endregion
+        public static readonly string more_horizontal = "more_horizontal.png";
+        public static readonly string avatar = "avatar.png";
+        public static readonly string vector = "vector.png";
     }
 
 }

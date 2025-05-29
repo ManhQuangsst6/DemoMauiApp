@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<app:BaseContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="DemoMauiApp.Features.Pages.Views.DashboardView"
+    xmlns:telerik="http://schemas.telerik.com/2022/xaml/maui"
+    xmlns:controls="clr-namespace:DemoMauiApp.UI.Controls;assembly=DemoMauiApp.UI"
+    xmlns:extension="clr-namespace:DemoMauiApp.UI.Extensions;assembly=DemoMauiApp.UI"
+    xmlns:app="clr-namespace:DemoMauiApp.CoreMVVM.MVVM;assembly=DemoMauiApp.CoreMVVM"
+    xmlns:ui="clr-namespace:DemoMauiApp.UI;assembly=DemoMauiApp.UI"
+    xmlns:vm="clr-namespace:DemoMauiApp.Features.Pages.ViewModels">
+    <app:BaseContentView.Resources>
+        
+    </app:BaseContentView.Resources>
+    <ScrollView>
+        <VerticalStackLayout>
+            <Grid
+                Margin="80,10,80,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition
+                        Width="auto" />
+                    <ColumnDefinition
+                        Width="*" />
+                    <ColumnDefinition
+                        Width="auto" />
+                </Grid.ColumnDefinitions>
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    Text="Dashboard app" />
+                <Grid
+                    Grid.Column="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition
+                            Width="*" />
+                        <ColumnDefinition
+                            Width="*" />
+                        <ColumnDefinition
+                            Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <telerik:RadButton
+                        HeightRequest="30"
+                        Background="{x:Static ui:AppColors.WhisperGray}"
+                        ImageSource="{x:Static ui:Icons.more_horizontal}" />
+                    <telerik:RadButton
+                        Margin="10,0"
+                        Grid.Column="1"
+                        Background="{x:Static ui:AppColors.Black}"
+                        TextColor="{x:Static ui:AppColors.White}"
+                        Text="Share" />
+                    <Grid
+                        Margin="8,0"
+                        Grid.Column="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition
+                                Width="auto" />
+                            <ColumnDefinition
+                                Width="*" />
+
+                        </Grid.ColumnDefinitions>
+                        <telerik:RadBorder
+                            CornerRadius="15"
+                            WidthRequest="30"
+                            HeightRequest="30"
+                            BorderThickness="0"
+                            BackgroundColor="Transparent"
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center">
+                            <Image
+                                Source="{x:Static ui:Icons.avatar}"
+                                WidthRequest="30"
+                                HeightRequest="30"
+                                Aspect="AspectFill">
+                                <Image.Clip>
+                                    <EllipseGeometry
+                                        Center="15,15"
+                                        RadiusX="15"
+                                        RadiusY="15" />
+                                </Image.Clip>
+                            </Image>
+                        </telerik:RadBorder>
+
+                        <telerik:RadButton
+                            Grid.Column="1"
+                            BorderThickness="0"
+                            WidthRequest="30"
+                            HeightRequest="30"
+                            ImageSource="{x:Static ui:Icons.vector}" />
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid
+                Margin="80,10,80,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition
+                        Width="auto" />
+                    <ColumnDefinition
+                        Width="*" />
+                    <ColumnDefinition
+                        Width="auto" />
+                </Grid.ColumnDefinitions>
+
+                <telerik:RadTabView
+                    Margin="0,20"
+                    Grid.Row="1"
+                    WidthRequest="200"
+                    x:Name="tabView">
+                    <telerik:RadTabView.HeaderItemStyle>
+                        <Style
+                            TargetType="telerik:TabViewHeaderItem">
+                            <Setter
+                                Property="BorderColor"
+                                Value="Transparent" />
+                            <Setter
+                                Property="FontAttributes"
+                                Value="Bold" />
+                            <Setter
+                                Property="TextColor"
+                                Value="{x:Static ui:AppColors.Black}" />
+                            <Setter
+                                Property="Padding"
+                                Value="{x:Static ui:Dimens.Spacing4}" />
+                            <Setter
+                                Property="ContentPadding"
+                                Value="{x:Static ui:Dimens.Spacing0}" />
+                            <Setter
+                                Property="VisualStateManager.VisualStateGroups">
+                                <VisualStateGroupList>
+                                    <VisualStateGroup
+                                        Name="CommonStates">
+                                        <VisualState
+                                            Name="Normal" />
+                                        <VisualState
+                                            Name="Selected">
+                                            <VisualState.Setters>
+                                                <Setter
+                                                    Property="Background"
+                                                    Value="{x:Static ui:AppColors.White}" />
+                                                <Setter
+                                                    Property="Margin"
+                                                    Value="{x:Static ui:Dimens.Spacing4}" />
+
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateGroupList>
+                            </Setter>
+                        </Style>
+                    </telerik:RadTabView.HeaderItemStyle>
+                    <telerik:RadTabView.HeaderStyle>
+                        <Style
+                            TargetType="telerik:TabViewHeader">
+                            <Setter
+                                Property="BorderThickness"
+                                Value="{x:Static ui:Dimens.BorderThickness0}" />
+                            <Setter
+                                Property="CornerRadius"
+                                Value="{x:Static ui:Dimens.Radius10}" />
+                            <Setter
+                                Property="BackgroundColor"
+                                Value="{x:Static ui:AppColors.WhisperGray}" />
+
+                        </Style>
+                    </telerik:RadTabView.HeaderStyle>
+                    <telerik:RadTabView.ContentStyle>
+                        <Style
+                            TargetType="telerik:TabViewContent">
+                            <Setter
+                                Property="BorderThickness"
+                                Value="{x:Static ui:Dimens.BorderThickness0}" />
+                        </Style>
+                    </telerik:RadTabView.ContentStyle>
+                    <telerik:TabViewItem
+                        HeaderText="Tab">
+                    </telerik:TabViewItem>
+                    <telerik:TabViewItem
+                        HeaderText="Tab" />
+                    <telerik:TabViewItem
+                        HeaderText="Tab" />
+                </telerik:RadTabView>
+                <telerik:RadEntry
+                    Margin="0,20"
+                    WidthRequest="300"
+                    Grid.Column="2"
+                    Grid.Row="1"
+                    x:Name="EntryShareName"
+                    FontSize="14"
+                    Placeholder="Search"
+                    PlaceholderColor="#99000000"
+                    AutomationId="radEntry" />
+            </Grid>
+            <Grid
+                Margin="80,10,80,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition
+                        Width="*" />
+                    <ColumnDefinition
+                        Width="*" />
+                    <ColumnDefinition
+                        Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <controls:ItemRevenue
+                    Rate="+20% month over month"
+                    RevenueNumber="$8123243" />
+                <controls:ItemRevenue
+                    Grid.Column="1"
+                    Padding="20,0"
+                    Rate="+33% month over month"
+                    RevenueNumber="$81243" />
+                <controls:ItemRevenue
+                    Grid.Column="2"
+                    Rate="-8% month over month"
+                    RevenueNumber="$23243" />
+
+            </Grid>
+            <Grid
+                Margin="80,10,80,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition
+                        Width="6*" />
+                    <ColumnDefinition
+                        Width="4*" />
+                </Grid.ColumnDefinitions>
+                <telerik:RadBorder
+                    CornerRadius="10"
+                    BorderThickness="1"
+                    BorderColor="#ccc">
+                    <StackLayout
+                        Margin="10">
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="16"
+                            Text="Title"
+                            Margin="10, 20" />
+                        <telerik:RadCartesianChart HeightRequest="448">
+                            <telerik:RadCartesianChart.HorizontalAxis>
+                                <telerik:DateTimeContinuousAxis
+                                    LineColor="Black"
+                                    MajorTickThickness="0"
+                                    LabelFitMode="None"
+                                    MajorStepUnit="Day">
+                                    <telerik:DateTimeContinuousAxis.LabelFormatter>
+                                        <extension:DateLabelFormatter />
+                                    </telerik:DateTimeContinuousAxis.LabelFormatter>
+                                </telerik:DateTimeContinuousAxis>
+                            </telerik:RadCartesianChart.HorizontalAxis>
+                            <telerik:RadCartesianChart.VerticalAxis>
+                                <telerik:NumericalAxis
+                                    LineColor="Transparent"
+                                    LabelFitMode="None"
+                                    MajorTickThickness="0"
+                                    LabelFormat="C"
+                                    MajorStep="0.5"
+                                    Minimum="-1"
+                                    Maximum="1" />
+                            </telerik:RadCartesianChart.VerticalAxis>
+                            <telerik:RadCartesianChart.Series>
+                                <telerik:LineSeries
+                                    Stroke="Black"
+                                    ItemsSource="{Binding TemporalDatas}"
+                                    CategoryBinding="Date"
+                                    ValueBinding="Value" />
+                            </telerik:RadCartesianChart.Series>
+                            <telerik:RadCartesianChart.Grid>
+                                <telerik:CartesianChartGrid
+                                    MajorLinesVisibility="Y"
+                                    MajorLineThickness="1"
+                                    MajorLineColor="#E0E0E0">
+                                </telerik:CartesianChartGrid>
+                            </telerik:RadCartesianChart.Grid>
+                        </telerik:RadCartesianChart>
+                    </StackLayout>
+                </telerik:RadBorder>
+                <telerik:RadBorder
+                    Margin="10,0,0,0"
+                    Grid.Column="1"
+                    CornerRadius="10"
+                    BorderThickness="1"
+                    BorderColor="#ccc">
+                    <StackLayout
+                        Margin="20">
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="16"
+                            Text="Title"
+                            Margin="10, 20" />
+                        <CollectionView
+                            ItemsSource="{Binding Emails}"
+                            Margin="0,10,0,10">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <controls:ItemMail
+                                        Padding="0,0,20,0"
+                                        BindingContext="{Binding}" />
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                </telerik:RadBorder>
+            </Grid>
+            <Grid
+                Margin="80,10,80,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition
+                        Width="4*" />
+                    <ColumnDefinition
+                        Width="6*" />
+                </Grid.ColumnDefinitions>
+                <telerik:RadBorder CornerRadius="10" BorderThickness="1" BorderColor="#ccc">
+                    <StackLayout Margin="10">
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="16"
+                            Text="Title"
+                            Margin="10, 20" />
+                        <telerik:RadDataGrid
+                         GridLinesVisibility="None"
+                            BorderThickness="0"
+                            x:Name="grid"
+                            ItemsSource="{Binding TrafficSources}"
+                            AutoGenerateColumns="False"
+                            UserGroupMode="Disabled"
+                            UserFilterMode="Disabled"
+                            SelectionMode="Single"
+                            UserEditMode="None"
+                            SelectionUnit="Row"
+                            HeightRequest="448"
+                            >
+                            
+                            <telerik:RadDataGrid.Columns>
+
+                                <telerik:DataGridTextColumn
+                                    DataMemberBinding="{Binding Source}"
+                                    HeaderText="Source" />
+                                <telerik:DataGridNumericalColumn
+                                    DataMemberBinding="{Binding Sessions}"
+                                    HeaderText="Sessions" />
+                                <telerik:DataGridTextColumn
+                                    DataMemberBinding="{Binding Change}"
+                                    HeaderText="Change" />
+
+                            </telerik:RadDataGrid.Columns>
+                        </telerik:RadDataGrid>
+                    </StackLayout>
+                </telerik:RadBorder>
+                <telerik:RadBorder
+                    Margin="10,0,0,0"
+                    CornerRadius="10"
+                    BorderThickness="1"
+                    BorderColor="#ccc"
+                    Grid.Column="1">
+                    <StackLayout
+                        Margin="10">
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="16"
+                            Text="Title"
+                            Margin="10, 20" />
+                        <telerik:RadCartesianChart
+                            HeightRequest="448">
+                            <telerik:RadCartesianChart.Palette>
+                                <telerik:ChartPalette>
+                                    <telerik:ChartPalette.Entries>
+                                        <telerik:PaletteEntry
+                                            FillColor="Black"
+                                            StrokeColor="Black" />
+                                    </telerik:ChartPalette.Entries>
+                                </telerik:ChartPalette>
+                            </telerik:RadCartesianChart.Palette>
+                            <telerik:RadCartesianChart.HorizontalAxis>
+                                <telerik:CategoricalAxis
+                                    PlotMode="BetweenTicks"
+                                    LineColor="Black"
+                                    LabelFitMode="None"
+                                    MajorTickThickness="0" />
+                            </telerik:RadCartesianChart.HorizontalAxis>
+                            <telerik:RadCartesianChart.VerticalAxis>
+                                <telerik:NumericalAxis
+                                    LineColor="Transparent"
+                                    MajorTickThickness="0" />
+                            </telerik:RadCartesianChart.VerticalAxis>
+                            <telerik:RadCartesianChart.Series  >
+                                <telerik:BarSeries
+                                    ValueBinding="Value"
+                                    CategoryBinding="Category"
+                                    ItemsSource="{Binding Data}" />
+                            </telerik:RadCartesianChart.Series >
+                            <telerik:RadCartesianChart.Grid>
+                                <telerik:CartesianChartGrid
+                                    MajorLinesVisibility="Y"
+                                    MajorLineThickness="1"
+                                    MajorLineColor="#E0E0E0">
+                                </telerik:CartesianChartGrid>
+                            </telerik:RadCartesianChart.Grid>
+                        </telerik:RadCartesianChart>
+                    </StackLayout>
+                </telerik:RadBorder>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+    
+</app:BaseContentView>

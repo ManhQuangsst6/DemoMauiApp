@@ -73,8 +73,19 @@
 	  <ProjectReference Include="..\DemoMauiApp.Utils\DemoMauiApp.Utils.csproj" />
 	</ItemGroup>
 
+	
+
+	<ItemGroup>
+	  <Compile Update="Features\Pages\Views\DashboardView.xaml.cs">
+	    <DependentUpon>DashboardView.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
 	<ItemGroup>
 	  <MauiXaml Update="Features\Pages\Views\BrowseView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Features\Pages\Views\DashboardView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Features\Pages\Views\HomeView.xaml">

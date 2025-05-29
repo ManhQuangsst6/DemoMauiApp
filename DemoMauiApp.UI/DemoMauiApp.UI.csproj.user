@@ -5,7 +5,13 @@
     <MauiXaml Update="Controls\ItemArtist.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Controls\ItemMail.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Controls\ItemPlayList.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Controls\ItemRevenue.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Resources\ColorResource.xaml">

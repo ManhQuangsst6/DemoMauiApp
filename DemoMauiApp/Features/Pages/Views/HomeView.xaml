@@ -10,13 +10,6 @@
     xmlns:vm="clr-namespace:DemoMauiApp.Features.Pages.ViewModels"
     x:DataType="vm:HomeViewModel">
     <app:BaseContentView.Resources>
-        <Style
-            TargetType="telerik:TabViewHeaderItem"
-            x:Key="HeaderStyleSelector">
-            <Setter
-                Property="CornerRadius"
-                Value="{x:Static ui:Dimens.Radius10}" />
-        </Style>
     </app:BaseContentView.Resources>
     <ScrollView>
         <StackLayout
