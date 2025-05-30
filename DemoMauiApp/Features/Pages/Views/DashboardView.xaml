@@ -8,11 +8,38 @@
     xmlns:extension="clr-namespace:DemoMauiApp.UI.Extensions;assembly=DemoMauiApp.UI"
     xmlns:app="clr-namespace:DemoMauiApp.CoreMVVM.MVVM;assembly=DemoMauiApp.CoreMVVM"
     xmlns:ui="clr-namespace:DemoMauiApp.UI;assembly=DemoMauiApp.UI"
-    xmlns:vm="clr-namespace:DemoMauiApp.Features.Pages.ViewModels">
+    xmlns:vm="clr-namespace:DemoMauiApp.Features.Pages.ViewModels"
+    >
     <app:BaseContentView.Resources>
-        
+        <DataTemplate
+            x:Key="CustomHeaderTemplate">
+            <telerik:RadBorder
+                BackgroundColor="#F8F8F8"
+                BorderThickness="1">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup
+                        x:Name="CommonStates">
+                        <VisualState
+                            x:Name="Normal" />
+                        <VisualState
+                            x:Name="Focused" />
+                        <VisualState
+                            x:Name="Disabled" />
+                        <VisualState
+                            x:Name="PointerOver">
+                            <VisualState.Setters>
+                                <Setter
+                                    Property="BackgroundColor"
+                                    Value="#33000000" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </telerik:RadBorder>
+        </DataTemplate>
+
     </app:BaseContentView.Resources>
-    <ScrollView>
+    <ScrollView x:Name="scrollView" Loaded="ScrollView_Loaded">
         <VerticalStackLayout>
             <Grid
                 Margin="80,10,80,0">
@@ -325,21 +352,47 @@
                             SelectionMode="Single"
                             UserEditMode="None"
                             SelectionUnit="Row"
-                            HeightRequest="448"
-                            >
+                            HeightRequest="448">
                             
                             <telerik:RadDataGrid.Columns>
-
-                                <telerik:DataGridTextColumn
+                                
+                                <telerik:DataGridTextColumn 
                                     DataMemberBinding="{Binding Source}"
-                                    HeaderText="Source" />
+                                    HeaderText="Source">
+                                    <telerik:DataGridTextColumn.HeaderStyle>
+                                        <Style
+                                            TargetType="telerik:DataGridColumnHeaderAppearance">
+                                            <Setter
+                                                Property="BorderThickness"
+                                                Value="0" />
+                                        </Style>
+                                    </telerik:DataGridTextColumn.HeaderStyle>
+                                </telerik:DataGridTextColumn>
                                 <telerik:DataGridNumericalColumn
                                     DataMemberBinding="{Binding Sessions}"
-                                    HeaderText="Sessions" />
+                                    HeaderText="Sessions">
+                                    <telerik:DataGridTextColumn.HeaderStyle>
+                                        <Style
+                                            TargetType="telerik:DataGridColumnHeaderAppearance">
+                                            <Setter
+                                                Property="BorderThickness"
+                                                Value="0" />
+                                        </Style>
+                                    </telerik:DataGridTextColumn.HeaderStyle>
+                                    
+                                </telerik:DataGridNumericalColumn>
                                 <telerik:DataGridTextColumn
                                     DataMemberBinding="{Binding Change}"
-                                    HeaderText="Change" />
-
+                                    HeaderText="Change">
+                                    <telerik:DataGridTextColumn.HeaderStyle>
+                                        <Style
+                                            TargetType="telerik:DataGridColumnHeaderAppearance">
+                                            <Setter
+                                                Property="BorderThickness"
+                                                Value="0" />
+                                        </Style>
+                                    </telerik:DataGridTextColumn.HeaderStyle>
+                                </telerik:DataGridTextColumn>
                             </telerik:RadDataGrid.Columns>
                         </telerik:RadDataGrid>
                     </StackLayout>

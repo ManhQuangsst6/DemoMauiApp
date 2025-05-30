@@ -12,5 +12,8 @@
     <ShellContent
         ContentTemplate="{DataTemplate pages:MainPage}"
         Route="MainPage" />
+    <ShellContent
+        ContentTemplate="{DataTemplate pages:Chat}"
+        Route="Chat" />
 
 </Shell>

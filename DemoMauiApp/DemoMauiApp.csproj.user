@@ -9,6 +9,9 @@
     <MauiXaml Update="Features\Pages\Views\BrowseView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Features\Pages\Views\Chat.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Features\Pages\Views\DashboardView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
