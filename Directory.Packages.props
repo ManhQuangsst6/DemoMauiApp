@@ -6,9 +6,9 @@
   </ItemGroup>
   <ItemGroup>
     <PackageVersion Include="AutoMapper" Version="14.0.0" />
-    <PackageVersion Include="CommunityToolkit.Common" Version="8.2.2" />
-    <PackageVersion Include="CommunityToolkit.Maui" Version="11.2.0" />
-    <PackageVersion Include="CommunityToolkit.Maui.Core" Version="11.2.0" />
+    <PackageVersion Include="CommunityToolkit.Common" Version="8.4.0" />
+    <PackageVersion Include="CommunityToolkit.Maui" Version="9.0.3" />
+    <PackageVersion Include="CommunityToolkit.Maui.Core" Version="9.0.3" />
     <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.4.0" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="9.0.5" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.5" />
