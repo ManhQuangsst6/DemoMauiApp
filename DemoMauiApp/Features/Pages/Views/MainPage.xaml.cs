@@ -37,7 +37,7 @@ public partial class MainPage : BasePage
                 contentControl.Content = new DashboardView(_appNavigator);
                 break;
             case var _ when text == AppResource.RadioNavigate:
-                contentControl.Content = new HomeView(_appNavigator, _mainService);
+                contentControl.Content = new TicketView(_appNavigator);
                 break;
             case var _ when text == AppResource.PlaylistsNavigate:
                 contentControl.Content = new HomeView(_appNavigator, _mainService);

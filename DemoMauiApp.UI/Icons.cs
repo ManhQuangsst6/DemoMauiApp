@@ -19,6 +19,9 @@
         public static readonly string videocall = "videocall.png";
         public static readonly string videocall2 = "videocall2.png";
         public static readonly string mic = "mic.png";
+        public static readonly string filter = "filter.png";
+        public static readonly string calendar = "calendar.png";
+        public static readonly string grid = "grid.png";
     }
 
 }

@@ -11,32 +11,7 @@
     xmlns:vm="clr-namespace:DemoMauiApp.Features.Pages.ViewModels"
     >
     <app:BaseContentView.Resources>
-        <DataTemplate
-            x:Key="CustomHeaderTemplate">
-            <telerik:RadBorder
-                BackgroundColor="{x:Static ui:AppColors.LightGray}"
-                BorderThickness="{x:Static ui:Dimens.BorderThickness1}">
-                <VisualStateManager.VisualStateGroups>
-                    <VisualStateGroup
-                        x:Name="CommonStates">
-                        <VisualState
-                            x:Name="Normal" />
-                        <VisualState
-                            x:Name="Focused" />
-                        <VisualState
-                            x:Name="Disabled" />
-                        <VisualState
-                            x:Name="PointerOver">
-                            <VisualState.Setters>
-                                <Setter
-                                    Property="BackgroundColor"
-                                    Value="{x:Static ui:AppColors.VeryTransparentBlack}" />
-                            </VisualState.Setters>
-                        </VisualState>
-                    </VisualStateGroup>
-                </VisualStateManager.VisualStateGroups>
-            </telerik:RadBorder>
-        </DataTemplate>
+        
 
     </app:BaseContentView.Resources>
     <ScrollView x:Name="scrollView" Loaded="ScrollView_Loaded">

@@ -24,11 +24,20 @@
             <Setter
                 Property="FontAttributes"
                 Value="Bold" />
+            
+            <Setter
+                Property="BorderColor"
+                Value="#f2f2f2" />
+            <Setter
+                Property="BorderThickness"
+                Value="20,10,0,0" />
         </Style>
         <Style
             TargetType="telerik:NavigationViewItemView"
             x:Key="NavigationItemStyleGroup">
-            
+            <Setter
+                Property="ContentPadding"
+                Value="20" />
             <Setter
                 Property="Padding"
                 Value="-40,0,0,0" />
@@ -51,6 +60,7 @@
             ItemClicked="navigationView_ItemClicked"
             Loaded="navigationView_Loaded"
             HeaderStyle="{StaticResource StyleHeaderNavigation}"
+            CompactPaneWidth="63"
             >
             <telerik:RadNavigationView.Items>
                 <telerik:NavigationViewItem 

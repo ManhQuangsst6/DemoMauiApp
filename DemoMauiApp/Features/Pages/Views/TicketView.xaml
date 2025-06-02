@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<app:BaseContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:telerik="http://schemas.telerik.com/2022/xaml/maui"
+    xmlns:controls="clr-namespace:DemoMauiApp.UI.Controls;assembly=DemoMauiApp.UI"
+    xmlns:extension="clr-namespace:DemoMauiApp.UI.Extensions;assembly=DemoMauiApp.UI"
+    xmlns:app="clr-namespace:DemoMauiApp.CoreMVVM.MVVM;assembly=DemoMauiApp.CoreMVVM"
+    xmlns:ui="clr-namespace:DemoMauiApp.UI;assembly=DemoMauiApp.UI"
+    xmlns:vm="clr-namespace:DemoMauiApp.Features.Pages.ViewModels"
+    x:Class="DemoMauiApp.Features.Pages.Views.TicketView">
+    <Grid
+        RowDefinitions="Auto,Auto, *"
+        Margin="80,10">
+        <Label
+            Text="Active issues"
+            FontAttributes="Bold"
+            FontSize="{x:Static ui:Dimens.Fonsize20}" />
+        <Grid
+            Grid.Row="1"
+            Margin="0,20,0,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition
+                    Width="auto" />
+                <ColumnDefinition
+                    Width="*" />
+                <ColumnDefinition
+                    Width="auto" />
+            </Grid.ColumnDefinitions>
+            <HorizontalStackLayout>
+                <Grid>
+                    <telerik:RadEntry
+                        CornerRadius="6"
+                        Padding="40,0,0,0"
+                        WidthRequest="300"
+                        x:Name="EntryShareName"
+                        FontSize="14"
+                        Placeholder="Search tickets..."
+                        PlaceholderColor="#99000000"
+                        AutomationId="radEntry" />
+                    <Image
+                        HorizontalOptions="Start"
+                        Margin="6,0,0,0"
+                        WidthRequest="20"
+                        Opacity="0.4"
+                        Source="{x:Static ui:Icons.search}" />
+                </Grid>
+                <telerik:RadButton
+                    Margin="12, 0,0,0"
+                    CornerRadius="6"
+                    ImageSource="{x:Static ui:Icons.filter}"
+                    Text="Filter" />
+            </HorizontalStackLayout>
+            <telerik:RadTabView
+                Grid.Column="2"
+                x:Name="tabView">
+                <telerik:RadTabView.HeaderItemStyle>
+                    <Style
+                        TargetType="telerik:TabViewHeaderItem">
+                        <Setter
+                            Property="BorderColor"
+                            Value="Transparent" />
+
+                        <Setter
+                            Property="Padding"
+                            Value="{x:Static ui:Dimens.Spacing4}" />
+                        <Setter
+                            Property="ContentPadding"
+                            Value="{x:Static ui:Dimens.Spacing0}" />
+                        <Setter
+                            Property="VisualStateManager.VisualStateGroups">
+                            <VisualStateGroupList>
+                                <VisualStateGroup
+                                    Name="CommonStates">
+                                    <VisualState
+                                        Name="Normal" />
+                                    <VisualState
+                                        Name="Selected">
+                                        <VisualState.Setters>
+                                            <Setter
+                                                Property="Background"
+                                                Value="{x:Static ui:AppColors.White}" />
+                                            <Setter
+                                                Property="Margin"
+                                                Value="4" />
+
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateGroupList>
+                        </Setter>
+                    </Style>
+                </telerik:RadTabView.HeaderItemStyle>
+                <telerik:RadTabView.HeaderStyle>
+                    <Style
+                        TargetType="telerik:TabViewHeader">
+                        <Setter
+                            Property="BorderThickness"
+                            Value="{x:Static ui:Dimens.BorderThickness0}" />
+                        <Setter
+                            Property="CornerRadius"
+                            Value="{x:Static ui:Dimens.Radius10}" />
+                        <Setter
+                            Property="BackgroundColor"
+                            Value="{x:Static ui:AppColors.WhisperGray}" />
+
+                    </Style>
+                </telerik:RadTabView.HeaderStyle>
+                <telerik:RadTabView.ContentStyle>
+                    <Style
+                        TargetType="telerik:TabViewContent">
+                        <Setter
+                            Property="BorderThickness"
+                            Value="{x:Static ui:Dimens.BorderThickness0}" />
+                    </Style>
+                </telerik:RadTabView.ContentStyle>
+                <telerik:TabViewItem
+                    ImageSource="{x:Static ui:Icons.list}"
+                    HeaderText=" ">
+                </telerik:TabViewItem>
+                <telerik:TabViewItem
+                    HeaderText=" "
+                    ImageSource="{x:Static ui:Icons.grid}" />
+                <telerik:TabViewItem
+                    HeaderText=" "
+                    ImageSource="{x:Static ui:Icons.calendar}" />
+            </telerik:RadTabView>
+        </Grid>
+        <telerik:RadDataGrid
+            Grid.Row="2"
+            BorderThickness="0"
+            ItemsSource="{Binding Tasks}"
+            AutoGenerateColumns="False"
+            UserGroupMode="Disabled"
+            UserFilterMode="Disabled"
+            SelectionMode="Single"
+            UserEditMode="None"
+            SelectionUnit="Row"
+            RowHeight="60"
+            UserSortMode="None"
+            CanUserResizeColumns="False">
+
+            <telerik:RadDataGrid.Columns>
+
+                <telerik:DataGridTextColumn
+                    Width="80"
+                    SizeMode="Fixed"
+                    DataMemberBinding="{Binding Id}"
+                    HeaderText="Task">
+                    <telerik:DataGridTextColumn.HeaderStyle>
+                        <Style
+                            TargetType="telerik:DataGridColumnHeaderAppearance">
+                            <Setter
+                                Property="BorderThickness"
+                                Value="0,0,0,1" />
+                            <Setter
+                                Property="TextColor"
+                                Value="#828282" />
+                        </Style>
+                    </telerik:DataGridTextColumn.HeaderStyle>
+                </telerik:DataGridTextColumn>
+                <telerik:DataGridTextColumn
+                    DataMemberBinding="{Binding Title}"
+                    HeaderText="Title">
+                    <telerik:DataGridTextColumn.HeaderStyle>
+                        <Style
+                            TargetType="telerik:DataGridColumnHeaderAppearance">
+                            <Setter
+                                Property="BorderThickness"
+                                Value="0,0,0,1" />
+                        </Style>
+                    </telerik:DataGridTextColumn.HeaderStyle>
+                </telerik:DataGridTextColumn>
+                <telerik:DataGridTemplateColumn
+                    Width="150"
+                    SizeMode="Fixed"
+                    HeaderText="Project">
+                    <telerik:DataGridTemplateColumn.HeaderStyle>
+                        <Style
+                            TargetType="telerik:DataGridColumnHeaderAppearance">
+                            <Setter
+                                Property="BorderThickness"
+                                Value="0,0,0,1" />
+                        </Style>
+                    </telerik:DataGridTemplateColumn.HeaderStyle>
+                    <telerik:DataGridTemplateColumn.CellContentTemplate>
+                        <DataTemplate>
+                            <telerik:RadButton
+                                HorizontalOptions="Start"
+                                Margin="0,6"
+                                WidthRequest="100"
+                                CornerRadius="10"
+                                Text="{Binding Project}" />
+                        </DataTemplate>
+                    </telerik:DataGridTemplateColumn.CellContentTemplate>
+
+                </telerik:DataGridTemplateColumn>
+                <telerik:DataGridTemplateColumn
+                    Width="100"
+                    SizeMode="Fixed"
+                    HeaderText="Priority">
+                    <telerik:DataGridTemplateColumn.HeaderStyle>
+                        <Style
+                            TargetType="telerik:DataGridColumnHeaderAppearance">
+                            <Setter
+                                Property="BorderThickness"
+                                Value="0,0,0,1" />
+                        </Style>
+                    </telerik:DataGridTemplateColumn.HeaderStyle>
+                    <telerik:DataGridTemplateColumn.CellContentTemplate>
+                        <DataTemplate>
+                            <telerik:RadButton
+                                HorizontalOptions="Start"
+                                Margin="0,6"
+                                WidthRequest="80"
+                                CornerRadius="10"
+                                Text="{Binding Priority}" />
+                        </DataTemplate>
+                    </telerik:DataGridTemplateColumn.CellContentTemplate>
+                </telerik:DataGridTemplateColumn >
+                <telerik:DataGridDateColumn
+                    Width="80"
+                    SizeMode="Fixed"
+                    DataMemberBinding="{Binding Date}"
+                    CellContentFormat="{}{0: MMM d}"
+                    HeaderText="Date">
+                    <telerik:DataGridDateColumn.HeaderStyle>
+                        <Style
+                            TargetType="telerik:DataGridColumnHeaderAppearance">
+                            <Setter
+                                Property="BorderThickness"
+                                Value="0,0,0,1" />
+                        </Style>
+                    </telerik:DataGridDateColumn.HeaderStyle>
+                </telerik:DataGridDateColumn>
+                <telerik:DataGridTemplateColumn
+                    Width="70" SizeMode="Fixed"
+                    HeaderText="Owner">
+                    <telerik:DataGridTemplateColumn.HeaderStyle>
+                        <Style
+                            TargetType="telerik:DataGridColumnHeaderAppearance">
+                            <Setter
+                                Property="BorderThickness"
+                                Value="0,0,0,1" />
+                        </Style>
+                    </telerik:DataGridTemplateColumn.HeaderStyle>
+                    <telerik:DataGridTemplateColumn.CellContentTemplate>
+                        <DataTemplate>
+                            <Image
+                                HorizontalOptions="Center"
+                                Source="{x:Static ui:Icons.avatar}"
+                                WidthRequest="30"
+                                HeightRequest="30"
+                                Aspect="AspectFill">
+                                <Image.Clip>
+                                    <EllipseGeometry
+                                        Center="15,15"
+                                        RadiusX="15"
+                                        RadiusY="15" />
+                                </Image.Clip>
+                            </Image>
+                        </DataTemplate>
+                    </telerik:DataGridTemplateColumn.CellContentTemplate>
+                </telerik:DataGridTemplateColumn>
+                <telerik:DataGridTemplateColumn Width="40"  >
+                    <telerik:DataGridTemplateColumn.HeaderStyle>
+                        <Style
+                            TargetType="telerik:DataGridColumnHeaderAppearance">
+                            <Setter
+                                Property="BorderThickness"
+                                Value="0,0,0,1" />
+                        </Style>
+                    </telerik:DataGridTemplateColumn.HeaderStyle>
+                    <telerik:DataGridTemplateColumn.CellContentTemplate>
+                        <DataTemplate>
+                            <telerik:RadButton
+                                Background="Transparent"
+                                Padding="0"
+                                WidthRequest="30"
+                                HeightRequest="30"
+                                BorderThickness="0"
+                                Opacity="0.5"
+                                ImageSource="{x:Static ui:Icons.more_horizontal}"
+                                HorizontalOptions="Start" />
+                        </DataTemplate>
+                    </telerik:DataGridTemplateColumn.CellContentTemplate>
+
+                </telerik:DataGridTemplateColumn>
+            </telerik:RadDataGrid.Columns>
+
+        </telerik:RadDataGrid>
+    </Grid>
+</app:BaseContentView>
