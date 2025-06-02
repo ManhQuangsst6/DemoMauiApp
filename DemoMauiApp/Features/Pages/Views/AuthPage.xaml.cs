@@ -1,8 +1,10 @@
+using DemoMauiApp.CoreMVVM.MVVM;
+
 namespace DemoMauiApp.Features.Pages.Views;
 
-public partial class BrowseView : ContentView
+public partial class AuthPage : BasePage
 {
-    public BrowseView()
+    public AuthPage()
     {
         InitializeComponent();
 

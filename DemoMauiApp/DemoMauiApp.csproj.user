@@ -6,7 +6,7 @@
     <ActiveDebugProfile>Windows Machine</ActiveDebugProfile>
   </PropertyGroup>
   <ItemGroup>
-    <MauiXaml Update="Features\Pages\Views\BrowseView.xaml">
+    <MauiXaml Update="Features\Pages\Views\AuthPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Features\Pages\Views\Chat.xaml">

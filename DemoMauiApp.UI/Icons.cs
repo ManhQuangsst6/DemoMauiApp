@@ -22,6 +22,7 @@
         public static readonly string filter = "filter.png";
         public static readonly string calendar = "calendar.png";
         public static readonly string grid = "grid.png";
+        public static readonly string google = "google.png";
     }
 
 }
