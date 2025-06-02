@@ -40,7 +40,7 @@
 
     </app:BaseContentView.Resources>
     <ScrollView x:Name="scrollView" Loaded="ScrollView_Loaded">
-        <VerticalStackLayout>
+        <VerticalStackLayout >
             <Grid
                 Margin="80,10,80,0">
                 <Grid.ColumnDefinitions>
@@ -205,16 +205,28 @@
                     <telerik:TabViewItem
                         HeaderText="Tab" />
                 </telerik:RadTabView>
-                <telerik:RadEntry
-                    Margin="0,20"
-                    WidthRequest="300"
+                <Grid
                     Grid.Column="2"
-                    Grid.Row="1"
-                    x:Name="EntryShareName"
-                    FontSize="14"
-                    Placeholder="Search"
-                    PlaceholderColor="#99000000"
-                    AutomationId="radEntry" />
+                    Margin="0,20"
+                    Grid.Row="1">
+                    
+                    <telerik:RadEntry
+                       
+                       Padding="40,0,0,0"
+                        WidthRequest="300"
+                        x:Name="EntryShareName"
+                        FontSize="14"
+                        Placeholder="Search"
+                        PlaceholderColor="#99000000"
+                        AutomationId="radEntry" />
+                    <Image
+                        HorizontalOptions="Start"
+                        Margin="6,0,0,0"
+                        WidthRequest="20"
+                        Opacity="0.4"
+                        Source="{x:Static ui:Icons.search}" />
+                </Grid>
+               
             </Grid>
             <Grid
                 Margin="80,10,80,0">
@@ -311,7 +323,7 @@
                             FontAttributes="Bold"
                             FontSize="{x:Static ui:Dimens.Fonsize16}"
                             Text="Title"
-                            Margin="10, 20" />
+                            Margin="10" />
                         <CollectionView
                             ItemsSource="{Binding Emails}"
                             Margin="0,10,0,10">
@@ -368,6 +380,9 @@
                                             <Setter
                                                 Property="BorderThickness"
                                                 Value="0,0,0,1" />
+                                            <Setter
+                                                Property="TextColor"
+                                                Value="#828282" />
                                         </Style>
                                     </telerik:DataGridTextColumn.HeaderStyle>
                                 </telerik:DataGridTextColumn>
@@ -377,12 +392,13 @@
                                     <telerik:DataGridTextColumn.HeaderStyle>
                                         <Style
                                             TargetType="telerik:DataGridColumnHeaderAppearance">
-                                            <Setter
-                                                Property="BorderThickness"
-                                                Value="{x:Static ui:Dimens.BorderThickness0}" />
+                                            
                                             <Setter
                                                 Property="BorderThickness"
                                                 Value="0,0,0,1" />
+                                            <Setter
+                                                Property="TextColor"
+                                                Value="#828282" />
                                         </Style>
                                     </telerik:DataGridTextColumn.HeaderStyle>
                                     
@@ -394,8 +410,8 @@
                                         <Style
                                             TargetType="telerik:DataGridColumnHeaderAppearance">
                                             <Setter
-                                                Property="BorderThickness"
-                                                Value="{x:Static ui:Dimens.BorderThickness0}" />
+                                                Property="TextColor"
+                                                Value="#828282" />
                                             <Setter
                                                 Property="BorderThickness"
                                                 Value="0,0,0,1" />

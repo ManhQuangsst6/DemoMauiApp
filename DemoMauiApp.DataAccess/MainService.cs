@@ -76,7 +76,7 @@ namespace DemoMauiApp.DataAccess
                 new Artist
                 {
                     Id = 4,
-                    Name = "Classical Essentials",
+                    Name = "Classical Ess",
                     Description = "Best class",
                     LinkImage = "https://m.yodycdn.com/blog/anh-dep-3d-yodyvn4.jpg"
                 },
@@ -84,7 +84,14 @@ namespace DemoMauiApp.DataAccess
                 {
                     Id = 5,
                     Name = "Test",
-                    Description = "Best class",
+                    Description = "Best class 2",
+                    LinkImage = "https://m.yodycdn.com/blog/anh-dep-3d-yodyvn4.jpg"
+                },
+                 new Artist
+                {
+                    Id = 6,
+                    Name = "Test 2",
+                    Description = "Best class 3",
                     LinkImage = "https://m.yodycdn.com/blog/anh-dep-3d-yodyvn4.jpg"
                 },
             };

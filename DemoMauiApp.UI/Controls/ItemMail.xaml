@@ -54,6 +54,7 @@
             Margin="10,0"
             Grid.Row=" 1"
             Grid.Column="1"
+            TextColor="#454545"
             Text="{Binding EmailAddress}" />
     </Grid>
 </ContentView>

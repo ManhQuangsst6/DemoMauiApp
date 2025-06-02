@@ -24,12 +24,22 @@
                 FontSize="{x:Static ui:Dimens.Fonsize20}"
                 FontAttributes="Bold"
                 Text="App" />
-            <telerik:RadEntry
-                Margin="0,20"
-                x:Name="EntryShareName"
-                FontSize="14"
-                Placeholder="Search"
-                PlaceholderColor="{x:Static ui:AppColors.TranslucentBlack}" />
+            <Grid>
+                <telerik:RadEntry
+                    Margin="0,20"
+                    Padding="40,0,0,0"
+                    x:Name="EntryShareName"
+                    FontSize="14"
+                    Placeholder="Search"
+                    PlaceholderColor="{x:Static ui:AppColors.TranslucentBlack}" />
+                <Image
+                    HorizontalOptions="Start"
+                    Margin="6,0,0,0"
+                    WidthRequest="20"
+                    Opacity="0.4"
+                    Source="{x:Static ui:Icons.search}" />
+            </Grid>
+           
             <telerik:RadCollectionView
                 VerticalOptions="FillAndExpand"
                 ItemsSource="{Binding UserChats}">
@@ -158,19 +168,17 @@
                     BorderColor="{x:Static ui:AppColors.GainsboroGray}"
                     BorderThickness="{x:Static ui:Dimens.BorderThickness0}">
                     <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition
-                                Width="*" />
-                            <ColumnDefinition
-                                Width="10" />
-                            <ColumnDefinition
-                                Width="auto" />
-                        </Grid.ColumnDefinitions>
+                       
                         <telerik:RadEntry
+                            FontSize="16"
+                            Placeholder="Enter your message"
+                            CornerRadius="10"
+                            Padding="10,0,120,0"
                             ClearButtonVisibility="Never"
                             BorderThickness="{x:Static ui:Dimens.BorderThickness0}"
                             Text="" />
                         <StackLayout Grid.Column="2"
+                                     HorizontalOptions="End"
                             Orientation="Horizontal">
                             <Image
                                 Margin="10,0"

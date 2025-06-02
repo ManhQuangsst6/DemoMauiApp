@@ -8,7 +8,7 @@ public partial class ItemArtist : ContentView
     public static readonly BindableProperty NameProperty = BindableProperty.Create(
        nameof(Name),
        typeof(string),
-       typeof(ItemPlayList),
+       typeof(ItemArtist),
        default(string),
        BindingMode.TwoWay);
 
@@ -20,7 +20,7 @@ public partial class ItemArtist : ContentView
     public static readonly BindableProperty DescriptionProperty = BindableProperty.Create(
         nameof(Description),
         typeof(string),
-        typeof(ItemPlayList),
+        typeof(ItemArtist),
         default(string),
         BindingMode.TwoWay);
     public string Description
@@ -31,7 +31,7 @@ public partial class ItemArtist : ContentView
     public static readonly BindableProperty ImageLinkProperty = BindableProperty.Create(
         nameof(ImageLink),
         typeof(string),
-        typeof(ItemPlayList),
+        typeof(ItemArtist),
         default(string),
         BindingMode.TwoWay);
     public string ImageLink

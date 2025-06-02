@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DemoMauiApp.UI.Controls.ItemArtist"
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="DemoMauiApp.UI.Controls.ItemArtist"
     xmlns:telerik="http://schemas.telerik.com/2022/xaml/maui"
     xmlns:ui="clr-namespace:DemoMauiApp.UI;assembly=DemoMauiApp.UI"
     xmlns:models="clr-namespace:DemoMauiApp.DataAccess.Models;assembly=DemoMauiApp.DataAccess"
@@ -9,16 +10,16 @@
     x:DataType="models:Artist"
     x:Name="this">
     <StackLayout>
-            <telerik:RadBorder
-                x:Name="border"
-                CornerRadius="{x:Static ui:Dimens.Radius10}">
-                <Image
-                    Source="{Binding LinkImage}"
-                    Aspect="AspectFill"
-                    WidthRequest="200"
-                    Loaded="Image_Loaded"
-                    HorizontalOptions="FillAndExpand" />
-            </telerik:RadBorder>
+        <telerik:RadBorder
+            x:Name="border"
+            CornerRadius="{x:Static ui:Dimens.Radius10}">
+            <Image
+                Source="{Binding LinkImage}"
+                Aspect="AspectFill"
+                WidthRequest="144"
+                Loaded="Image_Loaded"
+                HorizontalOptions="FillAndExpand" />
+        </telerik:RadBorder>
         <StackLayout>
             <Label
                 FontSize="20"
@@ -26,15 +27,14 @@
                 Text="{Binding Name}"
                 Loaded="Label_Loaded">
                 <Label.Effects>
-                 <behavior:MouseHoverEffect />
-             </Label.Effects>
+                    <behavior:MouseHoverEffect />
+                </Label.Effects>
             </Label>
             <Label
                 Loaded="Label_Loaded_1"
                 Text="{Binding Description}" />
-            
 
         </StackLayout>
-       
+
     </StackLayout>
 </ContentView>

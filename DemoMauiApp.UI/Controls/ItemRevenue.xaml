@@ -20,6 +20,7 @@
                 Text="Title"
                 FontSize="16" />
             <Label
+                FontFamily="Inter"
                 FontSize="40"
                 FontAttributes="Bold"
                 Text="{Binding RevenueNumber,Source={x:Reference this}}" />
