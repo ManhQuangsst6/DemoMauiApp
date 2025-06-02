@@ -5,13 +5,6 @@
     xmlns:behavior="clr-namespace:DemoMauiApp.UI.Behaviors;assembly=DemoMauiApp.UI"
     x:Class="DemoMauiApp.Features.Pages.Views.BrowseView">
     <VerticalStackLayout>
-        <Button
-            Text="sdhsdf">
-            <Button.Effects>
-                <behavior:MouseHoverEffect />
-            </Button.Effects>
-        </Button>
-        <Button x:Name="a"
-            Text="sdsdf" Loaded="a_Loaded"></Button>
+        
     </VerticalStackLayout>
 </ContentView>

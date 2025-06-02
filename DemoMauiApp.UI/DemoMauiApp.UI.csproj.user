@@ -14,6 +14,12 @@
     <MauiXaml Update="Controls\ItemRevenue.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Controls\ItemUserChat.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Controls\MessageBubble.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Resources\ColorResource.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

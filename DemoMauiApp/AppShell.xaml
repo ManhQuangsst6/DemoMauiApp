@@ -15,5 +15,6 @@
     <ShellContent
         ContentTemplate="{DataTemplate pages:Chat}"
         Route="Chat" />
+   
 
 </Shell>

@@ -1,12 +1,267 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DemoMauiApp.Features.Pages.Views.Chat"
-             Title="Chat">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
-</ContentPage>
+<app:BasePage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="DemoMauiApp.Features.Pages.Views.Chat"
+    xmlns:telerik="http://schemas.telerik.com/2022/xaml/maui"
+    xmlns:controls="clr-namespace:DemoMauiApp.UI.Controls;assembly=DemoMauiApp.UI"
+    xmlns:extension="clr-namespace:DemoMauiApp.UI.Extensions;assembly=DemoMauiApp.UI"
+    xmlns:app="clr-namespace:DemoMauiApp.CoreMVVM.MVVM;assembly=DemoMauiApp.CoreMVVM"
+    xmlns:ui="clr-namespace:DemoMauiApp.UI;assembly=DemoMauiApp.UI"
+    xmlns:vm="clr-namespace:DemoMauiApp.Features.Pages.ViewModels">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition
+                Width="5*" />
+            <ColumnDefinition
+                Width="9*" />
+            <ColumnDefinition
+                Width="3*" />
+        </Grid.ColumnDefinitions>
+        <StackLayout
+            Margin="24,0">
+            <Label
+                FontSize="{x:Static ui:Dimens.Fonsize20}"
+                FontAttributes="Bold"
+                Text="App" />
+            <telerik:RadEntry
+                Margin="0,20"
+                x:Name="EntryShareName"
+                FontSize="14"
+                Placeholder="Search"
+                PlaceholderColor="{x:Static ui:AppColors.TranslucentBlack}" />
+            <telerik:RadCollectionView
+                VerticalOptions="FillAndExpand"
+                ItemsSource="{Binding UserChats}">
+                <telerik:RadCollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <controls:ItemUserChat />
+                    </DataTemplate>
+                </telerik:RadCollectionView.ItemTemplate>
+            </telerik:RadCollectionView>
+        </StackLayout>
+        <telerik:RadBorder
+            Grid.Column="1"
+            BorderThickness="1,0"
+            BorderColor="{x:Static ui:AppColors.Gray}">
+
+            <StackLayout>
+                <telerik:RadBorder
+                    BorderColor="{x:Static ui:AppColors.GainsboroGray}"
+                    BorderThickness="0,0,0,1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition
+                                Width="auto" />
+                            <ColumnDefinition
+                                Width="*" />
+                            <ColumnDefinition
+                                Width="auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid
+                            Margin="{x:Static ui:Dimens.Margin10}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition
+                                    Height="*" />
+                                <RowDefinition
+                                    Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition
+                                    Width="*" />
+                                <ColumnDefinition
+                                    Width="5*" />
+                            </Grid.ColumnDefinitions>
+                            <telerik:RadBorder
+                                Margin="0,0,0,0"
+                                Grid.RowSpan="2"
+                                CornerRadius="{x:Static ui:Dimens.Radius15}"
+                                WidthRequest="{x:Static ui:Dimens.Width50}"
+                                HeightRequest="{x:Static ui:Dimens.Height50}"
+                                BorderThickness="{x:Static ui:Dimens.BorderThickness0}"
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="Start"
+                                VerticalOptions="Center">
+                                <Image
+                                    Source="{x:Static ui:Icons.avatar}"
+                                    WidthRequest="{x:Static ui:Dimens.Width50}"
+                                    HeightRequest="{x:Static ui:Dimens.Height50}"
+                                    Aspect="AspectFill">
+                                    <Image.Clip>
+                                        <EllipseGeometry
+                                            Center="25,25"
+                                            RadiusX="{x:Static ui:Dimens.Radius25}"
+                                            RadiusY="{x:Static ui:Dimens.Radius25}" />
+                                    </Image.Clip>
+                                </Image>
+                            </telerik:RadBorder>
+                            <Label
+                                Margin="10,0"
+                                Grid.Column="1"
+                                FontAttributes="Bold"
+                                Text="Helena Hills" />
+                            <Label
+                                Margin="10,0"
+                                Grid.Row=" 1"
+                                Grid.Column="1"
+                                Text="Active 20m ago" />
+                        </Grid>
+                        <Grid
+                            Grid.Column="2"
+                            Margin="20,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition
+                                    Width="*" />
+                                <ColumnDefinition
+                                    Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image
+                                HorizontalOptions="End"
+                                VerticalOptions="Center"
+                                Source="{x:Static ui:Icons.phone}"
+                                WidthRequest="{x:Static ui:Dimens.Width18}"
+                                HeightRequest="{x:Static ui:Dimens.Height16}" />
+                            <Image
+                                Margin="10,0"
+                                Grid.Column="1"
+                                HorizontalOptions="End"
+                                VerticalOptions="Center"
+                                Source="{x:Static ui:Icons.videocall}"
+                                WidthRequest="{x:Static ui:Dimens.Width15}"
+                                HeightRequest="{x:Static ui:Dimens.Height14}" />
+                            <Image
+                                Margin="0,0,4,0"
+                                Grid.Column="1"
+                                HorizontalOptions="End"
+                                VerticalOptions="Center"
+                                Source="{x:Static ui:Icons.videocall2}"
+                                WidthRequest="{x:Static ui:Dimens.Width7}"
+                                HeightRequest="{x:Static ui:Dimens.Height10}" />
+                        </Grid>
+                    </Grid>
+                </telerik:RadBorder>
+                <telerik:RadCollectionView
+                    VerticalOptions="FillAndExpand"
+                    ItemsSource="{Binding MessageChats}"
+                    x:Name="ChatList"
+                    SelectionMode="None">
+                    <telerik:RadCollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <controls:MessageBubble />
+                        </DataTemplate>
+                    </telerik:RadCollectionView.ItemTemplate>
+                </telerik:RadCollectionView>
+                <telerik:RadBorder
+                    Margin="20,10"
+                    HeightRequest="50"
+                    BorderColor="{x:Static ui:AppColors.GainsboroGray}"
+                    BorderThickness="{x:Static ui:Dimens.BorderThickness0}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition
+                                Width="*" />
+                            <ColumnDefinition
+                                Width="10" />
+                            <ColumnDefinition
+                                Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        <telerik:RadEntry
+                            ClearButtonVisibility="Never"
+                            BorderThickness="{x:Static ui:Dimens.BorderThickness0}"
+                            Text="" />
+                        <StackLayout Grid.Column="2"
+                            Orientation="Horizontal">
+                            <Image
+                                Margin="10,0"
+                                HorizontalOptions="End"
+                                VerticalOptions="Center"
+                                Source="{x:Static ui:Icons.mic}"
+                                WidthRequest="{x:Static ui:Dimens.Width24}"
+                                HeightRequest="{x:Static ui:Dimens.Height24}" />
+                            <Image
+                                HorizontalOptions="End"
+                                VerticalOptions="Center"
+                                Source="{x:Static ui:Icons.smile}"
+                                WidthRequest="{x:Static ui:Dimens.Width24}"
+                                HeightRequest="{x:Static ui:Dimens.Height24}" />
+                            <Image Margin="10,0"
+                                HorizontalOptions="End"
+                                VerticalOptions="Center"
+                                Source="{x:Static ui:Icons.image}"
+                                WidthRequest="{x:Static ui:Dimens.Width24}"
+                                HeightRequest="{x:Static ui:Dimens.Height24}" />
+                            
+                        </StackLayout>
+                    </Grid>
+                </telerik:RadBorder>
+            </StackLayout>
+        </telerik:RadBorder>
+
+        <StackLayout
+            Grid.Column="2">
+            <telerik:RadBorder
+                Grid.RowSpan="2"
+                WidthRequest="{x:Static ui:Dimens.Width150}"
+                HeightRequest="{x:Static ui:Dimens.Height150}"
+                BorderThickness="{x:Static ui:Dimens.BorderThickness0}"
+                BackgroundColor="Transparent"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+                <Image
+                    Source="{x:Static ui:Icons.avatar}"
+                    WidthRequest="{x:Static ui:Dimens.Width150}"
+                    HeightRequest="{x:Static ui:Dimens.Height150}"
+                    Aspect="AspectFit">
+                    <Image.Clip>
+                        <EllipseGeometry
+                            Center="75,75"
+                            RadiusX="{x:Static ui:Dimens.Radius75}"
+                            RadiusY="{x:Static ui:Dimens.Radius75}" />
+                    </Image.Clip>
+                </Image>
+            </telerik:RadBorder>
+
+            <Label
+                Margin="0,20,0,0"
+                HorizontalOptions="Center"
+                Text="Helena"
+                FontAttributes="Bold"
+                FontSize="{x:Static ui:Dimens.Fonsize20}" />
+            <Label
+                HorizontalOptions="Center"
+                Text="Active 20m ago" />
+
+            <telerik:RadButton
+                Margin="20,20,20,0"
+                HorizontalOptions="FillAndExpand"
+                Grid.Column="2"
+                TextColor="{x:Static ui:AppColors.White}"
+                HeightRequest="{x:Static ui:Dimens.Height40}"
+                Background="{x:Static ui:AppColors.Black}"
+                Text="View profile" />
+
+            <telerik:RadButton
+                Margin="20,20,0,0"
+                HorizontalOptions="StartAndExpand"
+                Grid.Column="2"
+                BorderThickness="{x:Static ui:Dimens.BorderThickness0}"
+                ImageSource="{x:Static ui:Icons.search}"
+                Text="Search chat" />
+            <telerik:RadButton
+                Margin="20,0,0,0"
+                HorizontalOptions="StartAndExpand"
+                Grid.Column="2"
+                BorderThickness="{x:Static ui:Dimens.BorderThickness0}"
+                ImageSource="{x:Static ui:Icons.image}"
+                Text="Sent images" />
+            <telerik:RadButton
+                Margin="20,0,0,0"
+                HorizontalOptions="StartAndExpand"
+                Grid.Column="2"
+                BorderThickness="{x:Static ui:Dimens.BorderThickness0}"
+                ImageSource="{x:Static ui:Icons.more_horizontal}"
+                Text="More options" />
+        </StackLayout>
+    </Grid>
+</app:BasePage>

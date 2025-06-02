@@ -14,8 +14,8 @@
         <DataTemplate
             x:Key="CustomHeaderTemplate">
             <telerik:RadBorder
-                BackgroundColor="#F8F8F8"
-                BorderThickness="1">
+                BackgroundColor="{x:Static ui:AppColors.LightGray}"
+                BorderThickness="{x:Static ui:Dimens.BorderThickness1}">
                 <VisualStateManager.VisualStateGroups>
                     <VisualStateGroup
                         x:Name="CommonStates">
@@ -30,7 +30,7 @@
                             <VisualState.Setters>
                                 <Setter
                                     Property="BackgroundColor"
-                                    Value="#33000000" />
+                                    Value="{x:Static ui:AppColors.VeryTransparentBlack}" />
                             </VisualState.Setters>
                         </VisualState>
                     </VisualStateGroup>
@@ -53,7 +53,7 @@
                 </Grid.ColumnDefinitions>
                 <Label
                     FontAttributes="Bold"
-                    FontSize="20"
+                    FontSize="{x:Static ui:Dimens.Fonsize20}"
                     Text="Dashboard app" />
                 <Grid
                     Grid.Column="2">
@@ -66,7 +66,7 @@
                             Width="*" />
                     </Grid.ColumnDefinitions>
                     <telerik:RadButton
-                        HeightRequest="30"
+                        HeightRequest="{x:Static ui:Dimens.Height30}"
                         Background="{x:Static ui:AppColors.WhisperGray}"
                         ImageSource="{x:Static ui:Icons.more_horizontal}" />
                     <telerik:RadButton
@@ -86,32 +86,32 @@
 
                         </Grid.ColumnDefinitions>
                         <telerik:RadBorder
-                            CornerRadius="15"
-                            WidthRequest="30"
-                            HeightRequest="30"
-                            BorderThickness="0"
+                            CornerRadius="{x:Static ui:Dimens.Radius15}"
+                            WidthRequest="{x:Static ui:Dimens.Width30}"
+                            HeightRequest="{x:Static ui:Dimens.Height30}"
+                            BorderThickness="{x:Static ui:Dimens.BorderThickness0}"
                             BackgroundColor="Transparent"
                             HorizontalOptions="Start"
                             VerticalOptions="Center">
                             <Image
                                 Source="{x:Static ui:Icons.avatar}"
-                                WidthRequest="30"
-                                HeightRequest="30"
+                                WidthRequest="{x:Static ui:Dimens.Width30}"
+                                HeightRequest="{x:Static ui:Dimens.Height30}"
                                 Aspect="AspectFill">
                                 <Image.Clip>
                                     <EllipseGeometry
                                         Center="15,15"
-                                        RadiusX="15"
-                                        RadiusY="15" />
+                                        RadiusX="{x:Static ui:Dimens.Radius15}"
+                                        RadiusY="{x:Static ui:Dimens.Radius15}" />
                                 </Image.Clip>
                             </Image>
                         </telerik:RadBorder>
 
                         <telerik:RadButton
                             Grid.Column="1"
-                            BorderThickness="0"
-                            WidthRequest="30"
-                            HeightRequest="30"
+                            BorderThickness="{x:Static ui:Dimens.BorderThickness0}"
+                            WidthRequest="{x:Static ui:Dimens.Width30}"
+                            HeightRequest="{x:Static ui:Dimens.Height30}"
                             ImageSource="{x:Static ui:Icons.vector}" />
                     </Grid>
                 </Grid>
@@ -130,7 +130,7 @@
                 <telerik:RadTabView
                     Margin="0,20"
                     Grid.Row="1"
-                    WidthRequest="200"
+                    WidthRequest="{x:Static ui:Dimens.Width200}"
                     x:Name="tabView">
                     <telerik:RadTabView.HeaderItemStyle>
                         <Style
@@ -251,20 +251,20 @@
                 </Grid.ColumnDefinitions>
                 <telerik:RadBorder
                     CornerRadius="10"
-                    BorderThickness="1"
-                    BorderColor="#ccc">
+                    BorderThickness="{x:Static ui:Dimens.BorderThickness1}"
+                    BorderColor="{x:Static ui:AppColors.MediumLightGray}">
                     <StackLayout
                         Margin="10">
                         <Label
                             FontAttributes="Bold"
-                            FontSize="16"
+                            FontSize="{x:Static ui:Dimens.Fonsize16}"
                             Text="Title"
                             Margin="10, 20" />
                         <telerik:RadCartesianChart HeightRequest="448">
                             <telerik:RadCartesianChart.HorizontalAxis>
                                 <telerik:DateTimeContinuousAxis
                                     LineColor="Black"
-                                    MajorTickThickness="0"
+                                    MajorTickThickness="{x:Static ui:Dimens.BorderThickness0}"
                                     LabelFitMode="None"
                                     MajorStepUnit="Day">
                                     <telerik:DateTimeContinuousAxis.LabelFormatter>
@@ -276,7 +276,7 @@
                                 <telerik:NumericalAxis
                                     LineColor="Transparent"
                                     LabelFitMode="None"
-                                    MajorTickThickness="0"
+                                    MajorTickThickness="{x:Static ui:Dimens.BorderThickness0}"
                                     LabelFormat="C"
                                     MajorStep="0.5"
                                     Minimum="-1"
@@ -284,7 +284,7 @@
                             </telerik:RadCartesianChart.VerticalAxis>
                             <telerik:RadCartesianChart.Series>
                                 <telerik:LineSeries
-                                    Stroke="Black"
+                                    Stroke="{x:Static ui:AppColors.Black}"
                                     ItemsSource="{Binding TemporalDatas}"
                                     CategoryBinding="Date"
                                     ValueBinding="Value" />
@@ -292,8 +292,8 @@
                             <telerik:RadCartesianChart.Grid>
                                 <telerik:CartesianChartGrid
                                     MajorLinesVisibility="Y"
-                                    MajorLineThickness="1"
-                                    MajorLineColor="#E0E0E0">
+                                    MajorLineThickness="{x:Static ui:Dimens.BorderThickness1}"
+                                    MajorLineColor="{x:Static ui:AppColors.VeryLightGray}">
                                 </telerik:CartesianChartGrid>
                             </telerik:RadCartesianChart.Grid>
                         </telerik:RadCartesianChart>
@@ -302,14 +302,14 @@
                 <telerik:RadBorder
                     Margin="10,0,0,0"
                     Grid.Column="1"
-                    CornerRadius="10"
-                    BorderThickness="1"
-                    BorderColor="#ccc">
+                    CornerRadius="{x:Static ui:Dimens.Radius10}"
+                    BorderThickness="{x:Static ui:Dimens.BorderThickness1}"
+                    BorderColor="{x:Static ui:AppColors.MediumLightGray}">
                     <StackLayout
                         Margin="20">
                         <Label
                             FontAttributes="Bold"
-                            FontSize="16"
+                            FontSize="{x:Static ui:Dimens.Fonsize16}"
                             Text="Title"
                             Margin="10, 20" />
                         <CollectionView
@@ -334,15 +334,18 @@
                     <ColumnDefinition
                         Width="6*" />
                 </Grid.ColumnDefinitions>
-                <telerik:RadBorder CornerRadius="10" BorderThickness="1" BorderColor="#ccc">
+                <telerik:RadBorder
+                    Margin="0,0,0,20"
+                    CornerRadius="{x:Static ui:Dimens.Radius10}"
+                    BorderThickness="{x:Static ui:Dimens.BorderThickness1}"
+                    BorderColor="{x:Static ui:AppColors.MediumLightGray}">
                     <StackLayout Margin="10">
                         <Label
                             FontAttributes="Bold"
-                            FontSize="16"
+                            FontSize="{x:Static ui:Dimens.Fonsize16}"
                             Text="Title"
                             Margin="10, 20" />
                         <telerik:RadDataGrid
-                         GridLinesVisibility="None"
                             BorderThickness="0"
                             x:Name="grid"
                             ItemsSource="{Binding TrafficSources}"
@@ -352,7 +355,7 @@
                             SelectionMode="Single"
                             UserEditMode="None"
                             SelectionUnit="Row"
-                            HeightRequest="448">
+                            HeightRequest="{x:Static ui:Dimens.Height448}">
                             
                             <telerik:RadDataGrid.Columns>
                                 
@@ -364,7 +367,7 @@
                                             TargetType="telerik:DataGridColumnHeaderAppearance">
                                             <Setter
                                                 Property="BorderThickness"
-                                                Value="0" />
+                                                Value="0,0,0,1" />
                                         </Style>
                                     </telerik:DataGridTextColumn.HeaderStyle>
                                 </telerik:DataGridTextColumn>
@@ -376,7 +379,10 @@
                                             TargetType="telerik:DataGridColumnHeaderAppearance">
                                             <Setter
                                                 Property="BorderThickness"
-                                                Value="0" />
+                                                Value="{x:Static ui:Dimens.BorderThickness0}" />
+                                            <Setter
+                                                Property="BorderThickness"
+                                                Value="0,0,0,1" />
                                         </Style>
                                     </telerik:DataGridTextColumn.HeaderStyle>
                                     
@@ -389,7 +395,10 @@
                                             TargetType="telerik:DataGridColumnHeaderAppearance">
                                             <Setter
                                                 Property="BorderThickness"
-                                                Value="0" />
+                                                Value="{x:Static ui:Dimens.BorderThickness0}" />
+                                            <Setter
+                                                Property="BorderThickness"
+                                                Value="0,0,0,1" />
                                         </Style>
                                     </telerik:DataGridTextColumn.HeaderStyle>
                                 </telerik:DataGridTextColumn>
@@ -398,40 +407,40 @@
                     </StackLayout>
                 </telerik:RadBorder>
                 <telerik:RadBorder
-                    Margin="10,0,0,0"
-                    CornerRadius="10"
-                    BorderThickness="1"
-                    BorderColor="#ccc"
+                    Margin="10,0,0,20"
+                    CornerRadius="{x:Static ui:Dimens.Radius10}"
+                    BorderThickness="{x:Static ui:Dimens.BorderThickness1}"
+                    BorderColor="{x:Static ui:AppColors.MediumLightGray}"
                     Grid.Column="1">
                     <StackLayout
-                        Margin="10">
+                        Margin="{x:Static ui:Dimens.Margin10}">
                         <Label
                             FontAttributes="Bold"
-                            FontSize="16"
+                            FontSize="{x:Static ui:Dimens.Fonsize16}"
                             Text="Title"
                             Margin="10, 20" />
                         <telerik:RadCartesianChart
-                            HeightRequest="448">
+                            HeightRequest="{x:Static ui:Dimens.Height448}">
                             <telerik:RadCartesianChart.Palette>
                                 <telerik:ChartPalette>
                                     <telerik:ChartPalette.Entries>
                                         <telerik:PaletteEntry
-                                            FillColor="Black"
-                                            StrokeColor="Black" />
+                                            FillColor="{x:Static ui:AppColors.Black}"
+                                            StrokeColor="{x:Static ui:AppColors.Black}" />
                                     </telerik:ChartPalette.Entries>
                                 </telerik:ChartPalette>
                             </telerik:RadCartesianChart.Palette>
                             <telerik:RadCartesianChart.HorizontalAxis>
                                 <telerik:CategoricalAxis
                                     PlotMode="BetweenTicks"
-                                    LineColor="Black"
+                                    LineColor="{x:Static ui:AppColors.Black}"
                                     LabelFitMode="None"
-                                    MajorTickThickness="0" />
+                                    MajorTickThickness="{x:Static ui:Dimens.BorderThickness0}" />
                             </telerik:RadCartesianChart.HorizontalAxis>
                             <telerik:RadCartesianChart.VerticalAxis>
                                 <telerik:NumericalAxis
                                     LineColor="Transparent"
-                                    MajorTickThickness="0" />
+                                    MajorTickThickness="{x:Static ui:Dimens.BorderThickness0}" />
                             </telerik:RadCartesianChart.VerticalAxis>
                             <telerik:RadCartesianChart.Series  >
                                 <telerik:BarSeries
@@ -442,7 +451,7 @@
                             <telerik:RadCartesianChart.Grid>
                                 <telerik:CartesianChartGrid
                                     MajorLinesVisibility="Y"
-                                    MajorLineThickness="1"
+                                    MajorLineThickness="{x:Static ui:Dimens.BorderThickness1}"
                                     MajorLineColor="#E0E0E0">
                                 </telerik:CartesianChartGrid>
                             </telerik:RadCartesianChart.Grid>

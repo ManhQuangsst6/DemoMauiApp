@@ -45,13 +45,6 @@ namespace DemoMauiApp.DataAccess
                     Description = "Best classical pieces",
                     LinkImage = "https://m.yodycdn.com/blog/anh-dep-3d-yodyvn4.jpg"
                 },
-                new PlayLists
-                {
-                    Id = 5,
-                    Name = "Jazz Vibes",
-                    Description = "Smooth jazz collection",
-                    LinkImage = "https://m.yodycdn.com/blog/anh-dep-3d-yodyvn4.jpg"
-                }
             };
 
         }
@@ -90,10 +83,10 @@ namespace DemoMauiApp.DataAccess
                 new Artist
                 {
                     Id = 5,
-                    Name = "Jazz Vibes",
-                    Description = "Smooth jazz c",
+                    Name = "Test",
+                    Description = "Best class",
                     LinkImage = "https://m.yodycdn.com/blog/anh-dep-3d-yodyvn4.jpg"
-                }
+                },
             };
 
         }

@@ -60,7 +60,7 @@ namespace DemoMauiApp
         private static MauiAppBuilder RegisterPages(this MauiAppBuilder builder)
         {
             builder.Services.AddPage<MainPage, MainViewModel>();
-            //builder.Services.AddPage<HomeView, HomeViewModel>();
+            builder.Services.AddPage<Chat, ChatViewModel>();
             return builder;
         }
 

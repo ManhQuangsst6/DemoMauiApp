@@ -14,6 +14,11 @@
         public static readonly string more_horizontal = "more_horizontal.png";
         public static readonly string avatar = "avatar.png";
         public static readonly string vector = "vector.png";
+        public static readonly string image = "image.png";
+        public static readonly string phone = "phone.png";
+        public static readonly string videocall = "videocall.png";
+        public static readonly string videocall2 = "videocall2.png";
+        public static readonly string mic = "mic.png";
     }
 
 }
